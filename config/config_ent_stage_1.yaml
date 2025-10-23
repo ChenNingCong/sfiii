@@ -4,7 +4,7 @@ folders:
   model_name: sr6_128x4_das_nc_ent0.1
 settings:
   game_id: sfiii3n
-  step_ratio: 1
+  step_ratio: 6
   frame_shape: !!python/tuple [128, 128, 1]
   continue_game: 0.0
   action_space: 2
