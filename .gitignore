@@ -1,0 +1,6 @@
+__pycache__/
+wandb.key
+.vscode
+*.zip
+*.db
+*.sif
