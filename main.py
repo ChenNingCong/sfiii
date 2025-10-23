@@ -48,6 +48,8 @@ def main(cfg_file):
     n_epochs = ppo_settings["n_epochs"]
     n_steps = ppo_settings["n_steps"]
     ent_coef = ppo_settings["ent_coef"]
+    
+    base_time_path = datetime.datetime.now().strftime("%I:%M%p-on-%B-%d-%Y")
 
     # init wandb as soon as possible
     run = wandb.init(
@@ -58,8 +60,7 @@ def main(cfg_file):
         monitor_gym=True,  # auto-upload the videos of agents playing the game
         save_code=True,  # optional
     )
-    
-    base_time_path = datetime.datetime.now().strftime("%I:%M%p-on-%B-%d-%Y")
+
     tensor_board_folder = os.path.join(params["folders"]["parent_dir"], base_time_path, params["settings"]["game_id"],
                                     params["folders"]["model_name"], "tb")
     
@@ -109,7 +110,7 @@ def main(cfg_file):
         callbacks.append(ent_callback)
     else:
         print("Ent coeff is a number, no decay")
-        
+
     callback_list = CallbackList(callbacks)
     agent.learn(total_timesteps=time_steps, callback=callback_list, progress_bar=True)
 

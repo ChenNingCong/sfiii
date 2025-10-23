@@ -36,7 +36,7 @@ policy_kwargs:
   - 64
 ppo_settings:
   gamma: 0.94
-  model_checkpoint: 'sfiii/results/12:29PM-on-October-21-2025/sfiii3n/sr6_128x4_das_nc/model/0_autosave_4500000'
+  model_checkpoint: '0'
   learning_rate:
   - 0.00025
   - 2.5e-06
@@ -47,5 +47,5 @@ ppo_settings:
   n_epochs: 4
   n_steps: 128
   autosave_freq: 100000
-  time_steps: 20000000
-  ent_coef: [0.005, 0]
+  time_steps: 10000000
+  ent_coef: [0.01, 0]
