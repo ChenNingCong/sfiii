@@ -7,6 +7,33 @@ from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.vec_env import DummyVecEnv, SubprocVecEnv
 from stable_baselines3.common.utils import set_random_seed
 
+import time
+import os
+from filelock import FileLock, Timeout
+from typing import Callable, Any
+# --- Configuration ---
+# All processes must agree on this path.
+LOCK_FILE_PATH = "lock_barrier.lock"
+TIMEOUT_SECONDS = 1000 # The maximum time a process will wait for the lock
+
+def serial_wrapper(f : Callable[[], Any]):
+    os.remove(LOCK_FILE_PATH) if os.path.exists(LOCK_FILE_PATH) else None
+    def wrapper(*args):
+        lock = FileLock(LOCK_FILE_PATH, timeout=TIMEOUT_SECONDS)
+        try:
+            print(f"Process {args}: Attempting to acquire lock...")
+            with lock:
+                print(f"Process {args}: ✅ Lock ACQUIRED. Executing serial task.")
+                result = f(*args)
+                print(f"Process {args}: Serial task COMPLETE. Releasing lock.")
+            print(f"Process {args}: Lock RELEASED. Continuing execution.")
+        except Timeout:
+            # Handle the case where the lock couldn't be acquired within the timeout
+            print(f"Process {args}: ❌ Failed to acquire lock within {TIMEOUT_SECONDS} seconds.")
+        print(f"Process {args}: Finished execution.")
+        return result
+    return wrapper
+
 # Make Stable Baselines3 Env function
 def make_sb3_env(game_id: str, env_settings: EnvironmentSettings=EnvironmentSettings(),
                  wrappers_settings: WrappersSettings=WrappersSettings(),
@@ -59,7 +86,7 @@ def make_sb3_env(game_id: str, env_settings: EnvironmentSettings=EnvironmentSett
         if num_envs == 1 or not use_subprocess:
             env = DummyVecEnv([_make_sb3_env(i + start_index, seed) for i in range(num_envs)])
         else:
-            env = SubprocVecEnv([_make_sb3_env(i + start_index, seed) for i in range(num_envs)],
+            env = SubprocVecEnv([serial_wrapper(_make_sb3_env(i + start_index, seed)) for i in range(num_envs)],
                                 start_method=start_method)
 
     return env, num_envs

@@ -3,7 +3,8 @@ import yaml
 import json
 import argparse
 from diambra.arena import load_settings_flat_dict, SpaceTypes
-from diambra.arena.stable_baselines3.make_sb3_env import make_sb3_env, EnvironmentSettings, WrappersSettings
+from diambra.arena.stable_baselines3.make_sb3_env import EnvironmentSettings, WrappersSettings
+from make_sb3_env import make_sb3_env
 from diambra.arena.stable_baselines3.sb3_utils import linear_schedule, AutoSave
 from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import CallbackList
@@ -39,7 +40,7 @@ def main(cfg_file):
     wrappers_settings = load_settings_flat_dict(WrappersSettings, params["wrappers_settings"])
 
     # Create environment
-    env, num_envs = make_sb3_env(settings.game_id, settings, wrappers_settings,use_subprocess=False)
+    env, num_envs = make_sb3_env(settings.game_id, settings, wrappers_settings,use_subprocess=True)
     print("Activated {} environment(s)".format(num_envs))
 
     # Policy param
