@@ -22,16 +22,6 @@ def main(cfg_file):
     yaml_file.close()
     os.environ["DIAMBRA_ENVS"] = " ".join([f"localhost:{50051 + i}" for i in range(params["num_envs"])])
 
-    base_time_path = datetime.datetime.now().strftime("%I:%M%p-on-%B-%d-%Y")
-
-    # use time to distinguish different runs
-    model_folder = os.path.join(params["folders"]["parent_dir"], base_time_path, params["settings"]["game_id"],
-                                params["folders"]["model_name"], "model")
-    tensor_board_folder = os.path.join(params["folders"]["parent_dir"], base_time_path, params["settings"]["game_id"],
-                                        params["folders"]["model_name"], "tb")
-
-    os.makedirs(model_folder, exist_ok=False)
-
     # Settings
     params["settings"]["action_space"] = SpaceTypes.DISCRETE if params["settings"]["action_space"] == "discrete" else SpaceTypes.MULTI_DISCRETE
     settings = load_settings_flat_dict(EnvironmentSettings, params["settings"])
@@ -70,8 +60,15 @@ def main(cfg_file):
         monitor_gym=True,  # auto-upload the videos of agents playing the game
         save_code=True,  # optional
     )
-
+    
+    base_time_path = datetime.datetime.now().strftime("%I:%M%p-on-%B-%d-%Y")
+    tensor_board_folder = os.path.join(params["folders"]["parent_dir"], base_time_path, params["settings"]["game_id"],
+                                    params["folders"]["model_name"], "tb")
+    
     if model_checkpoint == "0":
+        # use time to distinguish different runs
+        model_folder = os.path.join(params["folders"]["parent_dir"], base_time_path, params["settings"]["game_id"], params["folders"]["model_name"], "model")
+        os.makedirs(model_folder, exist_ok=False)
         # Initialize the agent
         agent = PPO("MultiInputPolicy", env, verbose=1, ent_coef=ent_coef,
                     gamma=gamma, batch_size=batch_size,
