@@ -43,13 +43,11 @@ def main(cfg_file):
 
     learning_rate = linear_schedule(ppo_settings["learning_rate"][0], ppo_settings["learning_rate"][1])
     clip_range = linear_schedule(ppo_settings["clip_range"][0], ppo_settings["clip_range"][1])
-    # no learning rate decay
-    ent_coef = ppo_settings["ent_coef"]
-    
     clip_range_vf = clip_range
     batch_size = ppo_settings["batch_size"]
     n_epochs = ppo_settings["n_epochs"]
     n_steps = ppo_settings["n_steps"]
+    ent_coef = ppo_settings["ent_coef"]
 
     # init wandb as soon as possible
     run = wandb.init(
@@ -101,6 +99,8 @@ def main(cfg_file):
         verbose=2,
     )
     callbacks = [wandb_callback, auto_save_callback]
+
+    # Set up entropy coefficient decay if needed
     def is_number(obj):
         return isinstance(obj, (int, float, complex))
 
@@ -109,6 +109,7 @@ def main(cfg_file):
         callbacks.append(ent_callback)
     else:
         print("Ent coeff is a number, no decay")
+        
     callback_list = CallbackList(callbacks)
     agent.learn(total_timesteps=time_steps, callback=callback_list, progress_bar=True)
 
