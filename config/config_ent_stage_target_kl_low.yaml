@@ -48,5 +48,5 @@ ppo_settings:
   n_steps: 128
   autosave_freq: 100000
   time_steps: 10000000
-  ent_coef: [0.01, 0]
+  ent_coef: 0
   target_kl: 0.01
