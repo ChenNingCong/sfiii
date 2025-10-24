@@ -4,3 +4,6 @@ wandb.key
 *.zip
 *.db
 *.sif
+wandb
+results/
+*.lock

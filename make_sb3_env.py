@@ -14,10 +14,12 @@ from typing import Callable, Any
 # --- Configuration ---
 # All processes must agree on this path.
 LOCK_FILE_PATH = "lock_barrier.lock"
+ENV_LOCK_FILE_PATH = "env_lock_barrier.lock"
 TIMEOUT_SECONDS = 1000 # The maximum time a process will wait for the lock
 
-def serial_wrapper(f : Callable[[], Any]):
-    os.remove(LOCK_FILE_PATH) if os.path.exists(LOCK_FILE_PATH) else None
+def serial_wrapper(f : Callable[[], Any], lock_file_path: str, remote_lock: bool = False):
+    if remote_lock:
+        os.remove(lock_file_path) if os.path.exists(lock_file_path) else None
     def wrapper(*args):
         lock = FileLock(LOCK_FILE_PATH, timeout=TIMEOUT_SECONDS)
         try:
@@ -86,7 +88,8 @@ def make_sb3_env(game_id: str, env_settings: EnvironmentSettings=EnvironmentSett
         if num_envs == 1 or not use_subprocess:
             env = DummyVecEnv([_make_sb3_env(i + start_index, seed) for i in range(num_envs)])
         else:
-            env = SubprocVecEnv([serial_wrapper(_make_sb3_env(i + start_index, seed)) for i in range(num_envs)],
+            env = SubprocVecEnv([serial_wrapper(_make_sb3_env(i + start_index, seed), lock_file_path=LOCK_FILE_PATH, remote_lock=True) for i in range(num_envs)],
                                 start_method=start_method)
 
     return env, num_envs
+make_sb3_env = serial_wrapper(make_sb3_env, lock_file_path=ENV_LOCK_FILE_PATH, remote_lock=False)
