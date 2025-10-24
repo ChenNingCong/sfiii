@@ -20,7 +20,11 @@ def main(cfg_file):
     params = yaml.load(yaml_file, Loader=yaml.FullLoader)
     print("Config parameters = ", json.dumps(params, sort_keys=True, indent=4))
     yaml_file.close()
-    os.environ["DIAMBRA_ENVS"] = " ".join([f"localhost:{50051 + i}" for i in range(params["num_envs"])])
+    port = os.environ["BASE_PORT"]
+    if not port.isnumeric():
+        raise Exception("ERROR: BASE_PORT environment variable must be set to a number.")
+    base_port = int(port)
+    os.environ["DIAMBRA_ENVS"] = " ".join([f"localhost:{base_port + i}" for i in range(params["num_envs"])])
 
     # Settings
     params["settings"]["action_space"] = SpaceTypes.DISCRETE if params["settings"]["action_space"] == "discrete" else SpaceTypes.MULTI_DISCRETE
@@ -48,8 +52,11 @@ def main(cfg_file):
     n_epochs = ppo_settings["n_epochs"]
     n_steps = ppo_settings["n_steps"]
     ent_coef = ppo_settings["ent_coef"]
-    
-    base_time_path = datetime.datetime.now().strftime("%I:%M%p-on-%B-%d-%Y")
+    import random
+    # Returns an integer (seconds) - generally preferred for storage
+    random_seed = random.randint(0, 999999)
+
+    base_time_path = datetime.datetime.now().strftime("%I:%M%p-on-%B-%d-%Y") + "_" + str(random_seed)
 
     # init wandb as soon as possible
     run = wandb.init(
