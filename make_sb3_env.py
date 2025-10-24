@@ -88,7 +88,7 @@ def make_sb3_env(game_id: str, env_settings: EnvironmentSettings=EnvironmentSett
         if num_envs == 1 or not use_subprocess:
             env = DummyVecEnv([_make_sb3_env(i + start_index, seed) for i in range(num_envs)])
         else:
-            env = SubprocVecEnv([serial_wrapper(_make_sb3_env(i + start_index, seed), lock_file_path=LOCK_FILE_PATH, remote_lock=True) for i in range(num_envs)],
+            env = SubprocVecEnv([serial_wrapper(_make_sb3_env(i + start_index, seed), lock_file_path=LOCK_FILE_PATH, remote_lock=False) for i in range(num_envs)],
                                 start_method=start_method)
 
     return env, num_envs
