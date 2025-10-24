@@ -20,19 +20,19 @@ TIMEOUT_SECONDS = 1000 # The maximum time a process will wait for the lock
 def serial_wrapper(f : Callable[[], Any], lock_file_path: str, remote_lock: bool = False):
     if remote_lock:
         os.remove(lock_file_path) if os.path.exists(lock_file_path) else None
-    def wrapper(*args):
+    def wrapper(*args, **kwargs):
         lock = FileLock(LOCK_FILE_PATH, timeout=TIMEOUT_SECONDS)
         try:
-            print(f"Process {args}: Attempting to acquire lock...")
+            print(f"Process {args, kwargs}: Attempting to acquire lock...")
             with lock:
-                print(f"Process {args}: ✅ Lock ACQUIRED. Executing serial task.")
-                result = f(*args)
-                print(f"Process {args}: Serial task COMPLETE. Releasing lock.")
-            print(f"Process {args}: Lock RELEASED. Continuing execution.")
+                print(f"Process {args, kwargs}: ✅ Lock ACQUIRED. Executing serial task.")
+                result = f(*args, **kwargs)
+                print(f"Process {args, kwargs}: Serial task COMPLETE. Releasing lock.")
+            print(f"Process {args, kwargs}: Lock RELEASED. Continuing execution.")
         except Timeout:
             # Handle the case where the lock couldn't be acquired within the timeout
-            print(f"Process {args}: ❌ Failed to acquire lock within {TIMEOUT_SECONDS} seconds.")
-        print(f"Process {args}: Finished execution.")
+            print(f"Process {args, kwargs}: ❌ Failed to acquire lock within {TIMEOUT_SECONDS} seconds.")
+        print(f"Process {args, kwargs}: Finished execution.")
         return result
     return wrapper
 
