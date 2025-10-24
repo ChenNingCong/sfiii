@@ -61,7 +61,7 @@ def main(cfg_file):
     # Returns an integer (seconds) - generally preferred for storage
     random_seed = random.randint(0, 999999)
 
-    base_time_path = datetime.datetime.now().strftime("%I:%M%p-on-%B-%d-%Y") + "_" + str(random_seed)
+    base_time_path = datetime.datetime.now().strftime("%I:%M%p-on-%B-%d-%Y") + "_" + str(random_seed) + "_" + os.path.split(cfg_file)[-1]
 
     # init wandb as soon as possible
     run = wandb.init(
