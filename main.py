@@ -55,7 +55,7 @@ def main(cfg_file):
     if "target_kl" in ppo_settings:
         target_kl = ppo_settings["target_kl"]
     else:
-        target_kl = 0.0
+        target_kl = None
 
     import random
     # Returns an integer (seconds) - generally preferred for storage
