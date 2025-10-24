@@ -14,7 +14,6 @@ from typing import Callable, Any
 # --- Configuration ---
 # All processes must agree on this path.
 LOCK_FILE_PATH = "lock_barrier.lock"
-ENV_LOCK_FILE_PATH = "env_lock_barrier.lock"
 TIMEOUT_SECONDS = 1000 # The maximum time a process will wait for the lock
 
 def serial_wrapper(f : Callable[[], Any], lock_file_path: str, remote_lock: bool = False):
@@ -92,4 +91,3 @@ def make_sb3_env(game_id: str, env_settings: EnvironmentSettings=EnvironmentSett
                                 start_method=start_method)
 
     return env, num_envs
-make_sb3_env = serial_wrapper(make_sb3_env, lock_file_path=ENV_LOCK_FILE_PATH, remote_lock=False)
