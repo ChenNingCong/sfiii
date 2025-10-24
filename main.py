@@ -52,6 +52,11 @@ def main(cfg_file):
     n_epochs = ppo_settings["n_epochs"]
     n_steps = ppo_settings["n_steps"]
     ent_coef = ppo_settings["ent_coef"]
+    if "target_kl" in ppo_settings:
+        target_kl = ppo_settings["target_kl"]
+    else:
+        target_kl = 0.0
+
     import random
     # Returns an integer (seconds) - generally preferred for storage
     random_seed = random.randint(0, 999999)
@@ -77,14 +82,14 @@ def main(cfg_file):
         os.makedirs(model_folder, exist_ok=False)
         # Initialize the agent
         agent = PPO("MultiInputPolicy", env, verbose=1, ent_coef=ent_coef,
-                    gamma=gamma, batch_size=batch_size,
+                    gamma=gamma, batch_size=batch_size, target_kl=target_kl,
                     n_epochs=n_epochs, n_steps=n_steps,
                     learning_rate=learning_rate, clip_range=clip_range,
                     clip_range_vf=clip_range_vf, policy_kwargs=policy_kwargs,
                     tensorboard_log=tensor_board_folder)
     else:
         # Load the trained agent
-        agent = PPO.load(model_checkpoint, env=env, ent_coef=ent_coef,
+        agent = PPO.load(model_checkpoint, env=env, ent_coef=ent_coef, target_kl=target_kl,
                          gamma=gamma, learning_rate=learning_rate, clip_range=clip_range,
                          clip_range_vf=clip_range_vf, policy_kwargs=policy_kwargs,
                          tensorboard_log=tensor_board_folder)
