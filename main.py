@@ -126,12 +126,12 @@ def main(cfg_file):
 
     if target_kl is not None:
         adaptive_kl_lr_callback = AdaptiveKLLRCallback(
-            target_kl=target_kl,
-            lr_floor=ppo_settings.get("adaptive_lr_floor", 1e-5),
-            lr_cap_early=ppo_settings.get("adaptive_lr_cap_early", 1e-2),
-            lr_cap_late=ppo_settings.get("adaptive_lr_cap_late", 8e-4),
-            timestep_threshold=ppo_settings.get("adaptive_lr_timestep_threshold", 2_000_000),
-            early_stop_decay=ppo_settings.get("adaptive_lr_early_stop_decay", 1.2),
+            target_kl=float(target_kl),
+            lr_floor=float(ppo_settings.get("adaptive_lr_floor", 1e-5)),
+            lr_cap_early=float(ppo_settings.get("adaptive_lr_cap_early", 1e-2)),
+            lr_cap_late=float(ppo_settings.get("adaptive_lr_cap_late", 8e-4)),
+            timestep_threshold=int(ppo_settings.get("adaptive_lr_timestep_threshold", 2_000_000)),
+            early_stop_decay=float(ppo_settings.get("adaptive_lr_early_stop_decay", 1.2)),
             verbose=1,
         )
         callbacks.append(adaptive_kl_lr_callback)
