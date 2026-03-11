@@ -130,7 +130,8 @@ def main(cfg_file):
             lr_floor=ppo_settings.get("adaptive_lr_floor", 1e-5),
             lr_cap_early=ppo_settings.get("adaptive_lr_cap_early", 1e-2),
             lr_cap_late=ppo_settings.get("adaptive_lr_cap_late", 8e-4),
-            timestep_threshold=ppo_settings.get("adaptive_lr_timestep_threshold", 8_000_000),
+            timestep_threshold=ppo_settings.get("adaptive_lr_timestep_threshold", 2_000_000),
+            early_stop_decay=ppo_settings.get("adaptive_lr_early_stop_decay", 1.2),
             verbose=1,
         )
         callbacks.append(adaptive_kl_lr_callback)

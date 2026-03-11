@@ -1,4 +1,4 @@
-num_envs: 1
+num_envs: 8
 folders:
   parent_dir: ./results/
   model_name: sr6_128x4_das_nc
@@ -35,7 +35,7 @@ policy_kwargs:
   - 64
   - 64
 ppo_settings:
-  gamma: 0.94
+  gamma: 0.999
   model_checkpoint: '0'
   learning_rate:
   - 0.00025
@@ -49,9 +49,10 @@ ppo_settings:
   autosave_freq: 1000000
   time_steps: 200000000
   ent_coef: 0.01
-  target_kl: 0.02
+  target_kl: 0.01
   # adaptive KL LR tuning (optional — defaults shown)
   # adaptive_lr_floor: 1.0e-5
   # adaptive_lr_cap_early: 1.0e-2
   # adaptive_lr_cap_late: 8.0e-4
   # adaptive_lr_timestep_threshold: 2000000
+  # adaptive_lr_early_stop_decay: 1.2

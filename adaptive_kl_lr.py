@@ -9,18 +9,24 @@ class AdaptiveKLLRCallback(BaseCallback):
 
     The effective LR = base_linear_schedule(progress_remaining) * multiplier.
 
-    On each rollout start (after the previous train() step has logged approx_kl):
-      - If KL > 2 * target_kl  → decrease multiplier (LR / 1.5), floor at lr_floor
-      - If KL < 0.5 * target_kl → increase multiplier (LR * 1.5), capped at lr_cap_early
-        or lr_cap_late (after timestep_threshold steps)
+    Detection of PPO early stopping: SB3 increments model._n_updates once per
+    completed epoch inside the epoch loop. We snapshot it in _on_rollout_end
+    (just before train()) and compare in _on_rollout_start (just after). If
+    fewer than n_epochs completed, early stopping fired.
+
+    Three adjustment zones (checked each rollout):
+      - Early stopped (n_updates_done < n_epochs): mild decay  (LR / early_stop_decay)
+      - KL > 2 * target_kl:                        strong decay (LR / 1.5)
+      - KL < 0.5 * target_kl:                      increase     (LR * 1.5, capped)
 
     Args:
-        target_kl:          Target KL divergence (same value passed to PPO).
-        lr_floor:           Minimum allowed effective learning rate.
-        lr_cap_early:       Maximum allowed LR before timestep_threshold.
-        lr_cap_late:        Maximum allowed LR after timestep_threshold.
-        timestep_threshold: Timestep at which the cap switches from early to late.
-        verbose:            Verbosity level.
+        target_kl:            Target KL divergence (same value passed to PPO).
+        lr_floor:             Minimum allowed effective learning rate.
+        lr_cap_early:         Maximum allowed LR before timestep_threshold.
+        lr_cap_late:          Maximum allowed LR after timestep_threshold.
+        timestep_threshold:   Timestep at which the cap switches from early to late.
+        early_stop_decay:     Divisor applied when PPO early stopping is detected.
+        verbose:              Verbosity level.
     """
 
     def __init__(
@@ -30,6 +36,7 @@ class AdaptiveKLLRCallback(BaseCallback):
         lr_cap_early: float = 1e-2,
         lr_cap_late: float = 8e-4,
         timestep_threshold: int = 2_000_000,
+        early_stop_decay: float = 1.2,
         verbose: int = 0,
     ):
         super().__init__(verbose)
@@ -38,8 +45,11 @@ class AdaptiveKLLRCallback(BaseCallback):
         self.lr_cap_early = lr_cap_early
         self.lr_cap_late = lr_cap_late
         self.timestep_threshold = timestep_threshold
+        self.early_stop_decay = early_stop_decay
         self.multiplier = 1.0
         self._original_schedule: Optional[Callable[[float], float]] = None
+        self._n_updates_before: int = 0
+        self._n_epochs: int = 1  # set in _on_training_start from model
 
     def _on_training_start(self) -> None:
         # Save the original (linear decay) schedule and wrap it with the multiplier.
@@ -51,29 +61,38 @@ class AdaptiveKLLRCallback(BaseCallback):
             return original(progress_remaining) * callback.multiplier
 
         self.model.lr_schedule = adaptive_schedule
+        self._n_epochs = getattr(self.model, "n_epochs", 1)
+
+    def _on_rollout_end(self) -> None:
+        # Snapshot _n_updates just before train() is called.
+        self._n_updates_before = self.model._n_updates
 
     def _on_rollout_start(self) -> bool:
-        # approx_kl is logged by PPO's train() from the *previous* iteration.
-        # name_to_value holds the last recorded value for each key.
         kl = self.model.logger.name_to_value.get("train/approx_kl", None)
         if kl is None:
             return True  # first iteration — no KL yet
 
-        # Current effective LR as set in the optimizer by _update_learning_rate().
+        # Detect early stopping: SB3 increments _n_updates once per completed
+        # epoch, so fewer increments than n_epochs means the loop was cut short.
+        n_updates_done = self.model._n_updates - self._n_updates_before
+        early_stopped = n_updates_done < self._n_epochs
+
         current_lr = self.model.policy.optimizer.param_groups[0]["lr"]
 
-        if kl > 2.0 * self.target_kl:
+        if early_stopped:
+            new_lr = max(self.lr_floor, current_lr / self.early_stop_decay)
+            reason = f"early_stop({n_updates_done}/{self._n_epochs} epochs)"
+        elif kl > 2.0 * self.target_kl:
             new_lr = max(self.lr_floor, current_lr / 1.5)
+            reason = "kl>2*target"
         elif kl < 0.5 * self.target_kl:
             cap = self.lr_cap_late if self.num_timesteps > self.timestep_threshold else self.lr_cap_early
             new_lr = min(cap, current_lr * 1.5)
+            reason = "kl<0.5*target"
         else:
-            # KL is within the acceptable band — no adjustment needed.
-            return True
+            return True  # KL within acceptable band
 
-        # Recompute multiplier so the adaptive schedule produces new_lr at the
-        # current progress. SB3 will call lr_schedule(progress_remaining) in
-        # _update_learning_rate() at the start of the next train() step.
+        # Recompute multiplier so adaptive_schedule returns new_lr at current progress.
         progress_remaining = 1.0 - self.num_timesteps / self.model._total_timesteps
         if self._original_schedule is not None:
             base_lr = self._original_schedule(progress_remaining)
@@ -83,11 +102,12 @@ class AdaptiveKLLRCallback(BaseCallback):
         self.logger.record("train/kl_lr_multiplier", self.multiplier)
         self.logger.record("train/adaptive_lr", new_lr)
         self.logger.record("train/approx_kl_for_lr_adj", kl)
+        self.logger.record("train/early_stopped", int(early_stopped))
 
         if self.verbose >= 1:
             print(
                 f"[AdaptiveKLLR] step={self.num_timesteps} kl={kl:.4f} "
-                f"target={self.target_kl} new_lr={new_lr:.2e} multiplier={self.multiplier:.4f}"
+                f"reason={reason} new_lr={new_lr:.2e} multiplier={self.multiplier:.4f}"
             )
 
         return True
