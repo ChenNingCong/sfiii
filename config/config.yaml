@@ -1,4 +1,4 @@
-num_envs: 16
+num_envs: 1
 folders:
   parent_dir: ./results/
   model_name: sr6_128x4_das_nc
@@ -46,6 +46,6 @@ ppo_settings:
   batch_size: 256
   n_epochs: 4
   n_steps: 128
-  autosave_freq: 100000
-  time_steps: 50000000
-  ent_coef: 0
+  autosave_freq: 1000000
+  time_steps: 200000000
+  ent_coef: 0.01
