@@ -11,6 +11,7 @@ from stable_baselines3.common.callbacks import CallbackList
 from wandb.integration.sb3 import WandbCallback
 import wandb
 from entropy_decay import EntropyDecayCallback
+from adaptive_kl_lr import AdaptiveKLLRCallback
 # diambra run -s 8 python stable_baselines3/training.py --cfgFile $PWD/stable_baselines3/cfg_files/sfiii3n/sr6_128x4_das_nc.yaml
 import datetime
 
@@ -122,6 +123,18 @@ def main(cfg_file):
         callbacks.append(ent_callback)
     else:
         print("Ent coeff is a number, no decay")
+
+    if target_kl is not None:
+        adaptive_kl_lr_callback = AdaptiveKLLRCallback(
+            target_kl=target_kl,
+            lr_floor=ppo_settings.get("adaptive_lr_floor", 1e-5),
+            lr_cap_early=ppo_settings.get("adaptive_lr_cap_early", 1e-2),
+            lr_cap_late=ppo_settings.get("adaptive_lr_cap_late", 8e-4),
+            timestep_threshold=ppo_settings.get("adaptive_lr_timestep_threshold", 8_000_000),
+            verbose=1,
+        )
+        callbacks.append(adaptive_kl_lr_callback)
+        print(f"AdaptiveKLLRCallback enabled with target_kl={target_kl}")
 
     callback_list = CallbackList(callbacks)
     agent.learn(total_timesteps=time_steps, callback=callback_list, progress_bar=True)

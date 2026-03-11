@@ -49,3 +49,9 @@ ppo_settings:
   autosave_freq: 1000000
   time_steps: 200000000
   ent_coef: 0.01
+  target_kl: 0.02
+  # adaptive KL LR tuning (optional — defaults shown)
+  # adaptive_lr_floor: 1.0e-5
+  # adaptive_lr_cap_early: 1.0e-2
+  # adaptive_lr_cap_late: 8.0e-4
+  # adaptive_lr_timestep_threshold: 2000000
