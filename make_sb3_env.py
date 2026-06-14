@@ -11,37 +11,57 @@ import time
 import os
 from filelock import FileLock, Timeout
 from typing import Callable, Any
+from env_wrapper import RoundTerminatingWrapper
+
 # --- Configuration ---
 # All processes must agree on this path.
 LOCK_FILE_PATH = "lock_barrier.lock"
-TIMEOUT_SECONDS = 1000 # The maximum time a process will wait for the lock
+TIMEOUT_SECONDS = 1000  # The maximum time a process will wait for the lock
 
-def serial_wrapper(f : Callable[[], Any], lock_file_path: str, remote_lock: bool = False):
+
+def serial_wrapper(
+    f: Callable[[], Any], lock_file_path: str, remote_lock: bool = False
+):
     if remote_lock:
         os.remove(lock_file_path) if os.path.exists(lock_file_path) else None
+
     def wrapper(*args, **kwargs):
         lock = FileLock(LOCK_FILE_PATH, timeout=TIMEOUT_SECONDS)
         try:
             print(f"Process {args, kwargs}: Attempting to acquire lock...")
             with lock:
-                print(f"Process {args, kwargs}: ✅ Lock ACQUIRED. Executing serial task.")
+                print(
+                    f"Process {args, kwargs}: ✅ Lock ACQUIRED. Executing serial task."
+                )
                 result = f(*args, **kwargs)
                 print(f"Process {args, kwargs}: Serial task COMPLETE. Releasing lock.")
             print(f"Process {args, kwargs}: Lock RELEASED. Continuing execution.")
         except Timeout:
             # Handle the case where the lock couldn't be acquired within the timeout
-            print(f"Process {args, kwargs}: ❌ Failed to acquire lock within {TIMEOUT_SECONDS} seconds.")
+            print(
+                f"Process {args, kwargs}: ❌ Failed to acquire lock within {TIMEOUT_SECONDS} seconds."
+            )
         print(f"Process {args, kwargs}: Finished execution.")
         return result
+
     return wrapper
 
+
 # Make Stable Baselines3 Env function
-def make_sb3_env(game_id: str, env_settings: EnvironmentSettings=EnvironmentSettings(),
-                 wrappers_settings: WrappersSettings=WrappersSettings(),
-                 episode_recording_settings: RecordingSettings=RecordingSettings(),
-                 render_mode: str="rgb_array", seed: int=None, start_index: int=0,
-                 allow_early_resets: bool=True, start_method: str=None, no_vec: bool=False,
-                 use_subprocess: bool=True, log_dir_base: str="/tmp/DIAMBRALog/"):
+def make_sb3_env(
+    game_id: str,
+    env_settings: EnvironmentSettings = EnvironmentSettings(),
+    wrappers_settings: WrappersSettings = WrappersSettings(),
+    episode_recording_settings: RecordingSettings = RecordingSettings(),
+    render_mode: str = "rgb_array",
+    seed: int = None,
+    start_index: int = 0,
+    allow_early_resets: bool = True,
+    start_method: str = None,
+    no_vec: bool = False,
+    use_subprocess: bool = True,
+    log_dir_base: str = "/tmp/DIAMBRALog/",
+):
     """
     Create a wrapped, monitored VecEnv.
     :param game_id: (str) the game environment ID
@@ -68,14 +88,24 @@ def make_sb3_env(game_id: str, env_settings: EnvironmentSettings=EnvironmentSett
         env_settings.seed += rank
 
         def _init():
-            env = diambra.arena.make(game_id, env_settings, wrappers_settings,
-                                     episode_recording_settings, render_mode, rank=rank)
+            env = diambra.arena.make(
+                game_id,
+                env_settings,
+                wrappers_settings,
+                episode_recording_settings,
+                render_mode,
+                rank=rank,
+            )
+
+            # Wrap with RoundTerminatingWrapper to terminate after each round
+            env = RoundTerminatingWrapper(env)
 
             # Create log dir
             log_dir = os.path.join(log_dir_base, str(rank))
             os.makedirs(log_dir, exist_ok=True)
             env = Monitor(env, log_dir, allow_early_resets=allow_early_resets)
             return env
+
         set_random_seed(env_settings.seed)
         return _init
 
@@ -85,9 +115,20 @@ def make_sb3_env(game_id: str, env_settings: EnvironmentSettings=EnvironmentSett
     else:
         # When using one environment, no need to start subprocesses
         if num_envs == 1 or not use_subprocess:
-            env = DummyVecEnv([_make_sb3_env(i + start_index, seed) for i in range(num_envs)])
+            env = DummyVecEnv(
+                [_make_sb3_env(i + start_index, seed) for i in range(num_envs)]
+            )
         else:
-            env = SubprocVecEnv([serial_wrapper(_make_sb3_env(i + start_index, seed), lock_file_path=LOCK_FILE_PATH, remote_lock=False) for i in range(num_envs)],
-                                start_method=start_method)
+            env = SubprocVecEnv(
+                [
+                    serial_wrapper(
+                        _make_sb3_env(i + start_index, seed),
+                        lock_file_path=LOCK_FILE_PATH,
+                        remote_lock=False,
+                    )
+                    for i in range(num_envs)
+                ],
+                start_method=start_method,
+            )
 
     return env, num_envs

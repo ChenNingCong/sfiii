@@ -4,7 +4,7 @@ folders:
   model_name: sr6_128x4_das_nc
 settings:
   game_id: sfiii3n
-  step_ratio: 1
+  step_ratio: 6
   frame_shape: !!python/tuple [128, 128, 1]
   continue_game: 0.0
   action_space: 2
@@ -13,7 +13,7 @@ settings:
   outfits: 2
 wrappers_settings:
   normalize_reward: true
-  normalization_factor: 0.2
+  normalization_factor: 0.5
   stack_frames: 4
   dilation: 6
   add_last_action: true
@@ -36,7 +36,7 @@ policy_kwargs:
   - 64
   - 64
 ppo_settings:
-  gamma: 0.99
+  gamma: 0.94
   model_checkpoint: '0'
   learning_rate:
   - 0.00025

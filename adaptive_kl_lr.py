@@ -46,7 +46,7 @@ class AdaptiveKLLRCallback(BaseCallback):
         self.lr_cap_late = lr_cap_late
         self.timestep_threshold = timestep_threshold
         self.early_stop_decay = early_stop_decay
-        self.multiplier = 1.0
+        self.multiplier = [1.0]
         self._original_schedule: Optional[Callable[[float], float]] = None
         self._n_updates_before: int = 0
         self._n_epochs: int = 1  # set in _on_training_start from model
@@ -55,10 +55,10 @@ class AdaptiveKLLRCallback(BaseCallback):
         # Save the original (linear decay) schedule and wrap it with the multiplier.
         self._original_schedule = self.model.lr_schedule
         original = self._original_schedule
-        callback = self
+        multiplier_ref = self.multiplier
 
         def adaptive_schedule(progress_remaining: float) -> float:
-            return original(progress_remaining) * callback.multiplier
+            return original(progress_remaining) * multiplier_ref[0]
 
         self.model.lr_schedule = adaptive_schedule
         self._n_epochs = getattr(self.model, "n_epochs", 1)
@@ -97,9 +97,9 @@ class AdaptiveKLLRCallback(BaseCallback):
         if self._original_schedule is not None:
             base_lr = self._original_schedule(progress_remaining)
             if base_lr > 0:
-                self.multiplier = new_lr / base_lr
+                self.multiplier[0] = new_lr / base_lr
 
-        self.logger.record("train/kl_lr_multiplier", self.multiplier)
+        self.logger.record("train/kl_lr_multiplier", self.multiplier[0])
         self.logger.record("train/adaptive_lr", new_lr)
         self.logger.record("train/approx_kl_for_lr_adj", kl)
         self.logger.record("train/early_stopped", int(early_stopped))
@@ -107,7 +107,7 @@ class AdaptiveKLLRCallback(BaseCallback):
         if self.verbose >= 1:
             print(
                 f"[AdaptiveKLLR] step={self.num_timesteps} kl={kl:.4f} "
-                f"reason={reason} new_lr={new_lr:.2e} multiplier={self.multiplier:.4f}"
+                f"reason={reason} new_lr={new_lr:.2e} multiplier={self.multiplier[0]:.4f}"
             )
 
         return True
