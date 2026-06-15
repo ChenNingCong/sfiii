@@ -1,0 +1,1526 @@
+[env] ready launch=1.6s make=17.3s
+Agent(
+  (cnn): NatureCNN(
+    (cnn): Sequential(
+      (0): Conv2d(4, 32, kernel_size=(8, 8), stride=(4, 4))
+      (1): ReLU()
+      (2): Conv2d(32, 64, kernel_size=(4, 4), stride=(2, 2))
+      (3): ReLU()
+      (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1))
+      (5): ReLU()
+      (6): Flatten(start_dim=1, end_dim=-1)
+    )
+    (fc): Sequential(
+      (0): Linear(in_features=9216, out_features=256, bias=True)
+      (1): ReLU()
+    )
+  )
+  (pi): Sequential(
+    (0): Linear(in_features=396, out_features=64, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=64, out_features=64, bias=True)
+    (3): Tanh()
+  )
+  (vf): Sequential(
+    (0): Linear(in_features=396, out_features=64, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=64, out_features=64, bias=True)
+    (3): Tanh()
+  )
+  (actor): Linear(in_features=64, out_features=19, bias=True)
+  (critic): Linear(in_features=64, out_features=1, bias=True)
+)
+params=2,497,972 nvec=[9, 10] vec_dim=140
+/home/zzhang18/nchen3/sfiii/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2274: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/zzhang18/nchen3/sfiii/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2274: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+wandb: Currently logged in as: nchen3 (ningcong-chen) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /home/zzhang18/nchen3/sfiii/wandb/run-20260614_083051-c7jcanb2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run 08:30AM-Jun-14-2026_cleanrl_662362
+wandb: ⭐️ View project at https://wandb.ai/ningcong-chen/ppo-new-200M
+wandb: 🚀 View run at https://wandb.ai/ningcong-chen/ppo-new-200M/runs/c7jcanb2
+it 1/13020 step 1536 SPS 754 kl 0.0022 rew 0.00 max_stage 0.00 mult 1.000
+it 5/13020 step 7680 SPS 996 kl 0.0017 rew 0.00 max_stage 0.00 mult 1.000
+it 10/13020 step 15360 SPS 1016 kl 0.0035 rew 0.00 max_stage 0.00 mult 1.000
+it 15/13020 step 23040 SPS 997 kl 0.0012 rew 0.00 max_stage 0.00 mult 1.000
+it 20/13020 step 30720 SPS 873 kl 0.0024 rew 0.00 max_stage 0.00 mult 1.000
+it 25/13020 step 38400 SPS 832 kl 0.0024 rew 0.00 max_stage 0.00 mult 1.000
+it 30/13020 step 46080 SPS 800 kl 0.0023 rew 0.00 max_stage 0.00 mult 1.000
+it 35/13020 step 53760 SPS 799 kl 0.0008 rew 0.00 max_stage 0.00 mult 1.000
+it 40/13020 step 61440 SPS 694 kl 0.0024 rew 0.00 max_stage 0.00 mult 1.000
+it 45/13020 step 69120 SPS 686 kl 0.0023 rew 0.00 max_stage 0.00 mult 1.000
+it 50/13020 step 76800 SPS 682 kl 0.0013 rew 0.00 max_stage 0.00 mult 1.000
+it 55/13020 step 84480 SPS 682 kl 0.0039 rew 0.00 max_stage 0.00 mult 1.000
+it 60/13020 step 92160 SPS 683 kl 0.0027 rew 0.00 max_stage 0.00 mult 1.000
+it 65/13020 step 99840 SPS 683 kl 0.0021 rew 0.00 max_stage 0.00 mult 1.000
+it 70/13020 step 107520 SPS 682 kl 0.0032 rew 0.00 max_stage 0.00 mult 1.000
+it 75/13020 step 115200 SPS 673 kl 0.0014 rew 0.00 max_stage 0.00 mult 1.000
+it 80/13020 step 122880 SPS 671 kl 0.0024 rew 0.00 max_stage 0.00 mult 1.000
+it 85/13020 step 130560 SPS 668 kl 0.0023 rew 0.00 max_stage 0.00 mult 1.000
+it 90/13020 step 138240 SPS 668 kl 0.0013 rew 0.00 max_stage 0.00 mult 1.000
+it 95/13020 step 145920 SPS 662 kl 0.0019 rew 0.00 max_stage 0.00 mult 1.000
+it 100/13020 step 153600 SPS 663 kl 0.0033 rew 0.00 max_stage 0.00 mult 1.000
+it 105/13020 step 161280 SPS 651 kl 0.0015 rew 0.00 max_stage 0.00 mult 1.000
+it 110/13020 step 168960 SPS 663 kl 0.0021 rew 10.31 max_stage 3.00 mult 1.000
+it 115/13020 step 176640 SPS 661 kl 0.0014 rew 10.31 max_stage 3.00 mult 1.000
+it 120/13020 step 184320 SPS 658 kl 0.0026 rew 10.31 max_stage 3.00 mult 1.000
+it 125/13020 step 192000 SPS 664 kl 0.0031 rew 10.31 max_stage 3.00 mult 1.000
+it 130/13020 step 199680 SPS 665 kl 0.0027 rew 10.31 max_stage 3.00 mult 1.000
+it 135/13020 step 207360 SPS 646 kl 0.0033 rew 10.31 max_stage 3.00 mult 1.000
+it 140/13020 step 215040 SPS 651 kl 0.0049 rew 10.31 max_stage 3.00 mult 1.000
+it 145/13020 step 222720 SPS 647 kl 0.0062 rew 10.31 max_stage 3.00 mult 1.000
+it 150/13020 step 230400 SPS 650 kl 0.0066 rew 10.31 max_stage 3.00 mult 1.000
+it 155/13020 step 238080 SPS 650 kl 0.0057 rew 10.31 max_stage 3.00 mult 0.694
+it 160/13020 step 245760 SPS 645 kl 0.0072 rew 10.31 max_stage 3.00 mult 0.833
+it 165/13020 step 253440 SPS 648 kl 0.0073 rew 10.31 max_stage 3.00 mult 0.833
+it 170/13020 step 261120 SPS 641 kl 0.0049 rew 10.31 max_stage 3.00 mult 0.868
+it 175/13020 step 268800 SPS 638 kl 0.0059 rew 11.13 max_stage 4.00 mult 0.603
+it 180/13020 step 276480 SPS 644 kl 0.0055 rew 11.14 max_stage 4.33 mult 0.603
+it 185/13020 step 284160 SPS 648 kl 0.0064 rew 11.14 max_stage 4.33 mult 0.628
+it 190/13020 step 291840 SPS 654 kl 0.0075 rew 11.38 max_stage 4.33 mult 0.523
+it 195/13020 step 299520 SPS 657 kl 0.0087 rew 12.32 max_stage 4.38 mult 0.454
+it 200/13020 step 307200 SPS 663 kl 0.0057 rew 12.32 max_stage 4.38 mult 0.394
+it 205/13020 step 314880 SPS 666 kl 0.0079 rew 13.06 max_stage 4.44 mult 0.493
+it 210/13020 step 322560 SPS 668 kl 0.0059 rew 13.81 max_stage 4.55 mult 0.342
+it 215/13020 step 330240 SPS 666 kl 0.0054 rew 13.81 max_stage 4.55 mult 0.357
+it 220/13020 step 337920 SPS 668 kl 0.0049 rew 13.50 max_stage 4.58 mult 0.446
+it 225/13020 step 345600 SPS 670 kl 0.0064 rew 13.50 max_stage 4.58 mult 0.309
+it 230/13020 step 353280 SPS 663 kl 0.0064 rew 13.50 max_stage 4.58 mult 0.322
+it 235/13020 step 360960 SPS 664 kl 0.0068 rew 13.50 max_stage 4.58 mult 0.336
+it 240/13020 step 368640 SPS 661 kl 0.0048 rew 13.50 max_stage 4.58 mult 0.350
+it 245/13020 step 376320 SPS 660 kl 0.0059 rew 13.50 max_stage 4.58 mult 0.437
+it 250/13020 step 384000 SPS 663 kl 0.0041 rew 13.50 max_stage 4.58 mult 0.547
+it 255/13020 step 391680 SPS 656 kl 0.0061 rew 13.50 max_stage 4.58 mult 0.316
+it 260/13020 step 399360 SPS 657 kl 0.0044 rew 13.50 max_stage 4.58 mult 0.494
+it 265/13020 step 407040 SPS 658 kl 0.0047 rew 13.50 max_stage 4.58 mult 0.515
+it 270/13020 step 414720 SPS 661 kl 0.0055 rew 13.50 max_stage 4.58 mult 0.358
+it 275/13020 step 422400 SPS 657 kl 0.0071 rew 12.95 max_stage 4.38 mult 0.447
+it 280/13020 step 430080 SPS 657 kl 0.0073 rew 12.95 max_stage 4.38 mult 0.466
+it 285/13020 step 437760 SPS 652 kl 0.0066 rew 12.95 max_stage 4.38 mult 0.466
+it 290/13020 step 445440 SPS 650 kl 0.0058 rew 12.95 max_stage 4.38 mult 0.388
+it 295/13020 step 453120 SPS 652 kl 0.0070 rew 12.95 max_stage 4.38 mult 0.485
+it 300/13020 step 460800 SPS 652 kl 0.0061 rew 12.95 max_stage 4.38 mult 0.337
+it 305/13020 step 468480 SPS 651 kl 0.0059 rew 12.95 max_stage 4.38 mult 0.421
+it 310/13020 step 476160 SPS 653 kl 0.0056 rew 12.95 max_stage 4.38 mult 0.365
+it 315/13020 step 483840 SPS 648 kl 0.0063 rew 12.54 max_stage 4.21 mult 0.317
+it 320/13020 step 491520 SPS 649 kl 0.0048 rew 12.54 max_stage 4.21 mult 0.396
+it 325/13020 step 499200 SPS 652 kl 0.0055 rew 12.54 max_stage 4.21 mult 0.330
+it 330/13020 step 506880 SPS 648 kl 0.0028 rew 12.70 max_stage 4.20 mult 0.344
+it 335/13020 step 514560 SPS 647 kl 0.0063 rew 12.70 max_stage 4.20 mult 0.359
+it 340/13020 step 522240 SPS 651 kl 0.0072 rew 13.56 max_stage 4.24 mult 0.373
+it 345/13020 step 529920 SPS 652 kl 0.0074 rew 13.56 max_stage 4.24 mult 0.389
+it 350/13020 step 537600 SPS 649 kl 0.0057 rew 13.56 max_stage 4.24 mult 0.486
+it 355/13020 step 545280 SPS 651 kl 0.0051 rew 13.56 max_stage 4.24 mult 0.422
+it 360/13020 step 552960 SPS 651 kl 0.0065 rew 13.64 max_stage 4.28 mult 0.366
+it 365/13020 step 560640 SPS 654 kl 0.0056 rew 13.67 max_stage 4.37 mult 0.254
+it 370/13020 step 568320 SPS 653 kl 0.0063 rew 13.67 max_stage 4.37 mult 0.398
+it 375/13020 step 576000 SPS 655 kl 0.0069 rew 13.67 max_stage 4.37 mult 0.276
+it 380/13020 step 583680 SPS 656 kl 0.0061 rew 13.31 max_stage 4.40 mult 0.345
+it 385/13020 step 591360 SPS 655 kl 0.0075 rew 13.51 max_stage 4.43 mult 0.300
+it 390/13020 step 599040 SPS 654 kl 0.0052 rew 13.85 max_stage 4.45 mult 0.312
+it 395/13020 step 606720 SPS 658 kl 0.0054 rew 13.85 max_stage 4.45 mult 0.325
+it 400/13020 step 614400 SPS 655 kl 0.0045 rew 13.85 max_stage 4.45 mult 0.406
+it 405/13020 step 622080 SPS 657 kl 0.0062 rew 13.77 max_stage 4.48 mult 0.339
+it 410/13020 step 629760 SPS 657 kl 0.0093 rew 13.77 max_stage 4.48 mult 0.353
+it 415/13020 step 637440 SPS 654 kl 0.0073 rew 13.77 max_stage 4.48 mult 0.294
+it 420/13020 step 645120 SPS 655 kl 0.0062 rew 13.77 max_stage 4.48 mult 0.306
+it 425/13020 step 652800 SPS 653 kl 0.0062 rew 13.77 max_stage 4.48 mult 0.319
+it 430/13020 step 660480 SPS 651 kl 0.0048 rew 13.77 max_stage 4.48 mult 0.399
+it 435/13020 step 668160 SPS 651 kl 0.0063 rew 13.77 max_stage 4.48 mult 0.277
+it 440/13020 step 675840 SPS 651 kl 0.0062 rew 14.02 max_stage 4.54 mult 0.288
+it 445/13020 step 683520 SPS 650 kl 0.0050 rew 14.02 max_stage 4.54 mult 0.250
+it 450/13020 step 691200 SPS 650 kl 0.0055 rew 14.02 max_stage 4.54 mult 0.313
+it 455/13020 step 698880 SPS 650 kl 0.0053 rew 13.58 max_stage 4.44 mult 0.326
+it 460/13020 step 706560 SPS 649 kl 0.0072 rew 13.58 max_stage 4.44 mult 0.326
+it 465/13020 step 714240 SPS 648 kl 0.0060 rew 13.58 max_stage 4.44 mult 0.272
+it 470/13020 step 721920 SPS 648 kl 0.0068 rew 13.58 max_stage 4.44 mult 0.340
+it 475/13020 step 729600 SPS 648 kl 0.0079 rew 13.58 max_stage 4.44 mult 0.340
+it 480/13020 step 737280 SPS 647 kl 0.0042 rew 13.58 max_stage 4.44 mult 0.424
+it 485/13020 step 744960 SPS 649 kl 0.0070 rew 13.58 max_stage 4.44 mult 0.295
+it 490/13020 step 752640 SPS 645 kl 0.0079 rew 13.58 max_stage 4.44 mult 0.307
+it 495/13020 step 760320 SPS 646 kl 0.0051 rew 13.58 max_stage 4.44 mult 0.267
+it 500/13020 step 768000 SPS 644 kl 0.0060 rew 13.58 max_stage 4.44 mult 0.278
+it 505/13020 step 775680 SPS 644 kl 0.0059 rew 13.58 max_stage 4.44 mult 0.241
+it 510/13020 step 783360 SPS 645 kl 0.0050 rew 13.76 max_stage 4.54 mult 0.377
+it 515/13020 step 791040 SPS 643 kl 0.0051 rew 13.76 max_stage 4.54 mult 0.218
+it 520/13020 step 798720 SPS 644 kl 0.0046 rew 13.86 max_stage 4.63 mult 0.340
+it 525/13020 step 806400 SPS 645 kl 0.0063 rew 13.70 max_stage 4.61 mult 0.236
+it 530/13020 step 814080 SPS 645 kl 0.0057 rew 13.70 max_stage 4.61 mult 0.246
+it 535/13020 step 821760 SPS 643 kl 0.0059 rew 13.70 max_stage 4.61 mult 0.257
+it 540/13020 step 829440 SPS 643 kl 0.0047 rew 13.70 max_stage 4.61 mult 0.223
+it 545/13020 step 837120 SPS 643 kl 0.0066 rew 13.70 max_stage 4.61 mult 0.278
+it 550/13020 step 844800 SPS 643 kl 0.0053 rew 13.79 max_stage 4.59 mult 0.290
+it 555/13020 step 852480 SPS 643 kl 0.0070 rew 13.79 max_stage 4.59 mult 0.302
+it 560/13020 step 860160 SPS 644 kl 0.0060 rew 13.79 max_stage 4.59 mult 0.252
+it 565/13020 step 867840 SPS 642 kl 0.0065 rew 13.66 max_stage 4.53 mult 0.262
+it 570/13020 step 875520 SPS 643 kl 0.0069 rew 13.66 max_stage 4.53 mult 0.273
+it 575/13020 step 883200 SPS 641 kl 0.0062 rew 13.66 max_stage 4.53 mult 0.237
+it 580/13020 step 890880 SPS 641 kl 0.0067 rew 13.66 max_stage 4.53 mult 0.206
+it 585/13020 step 898560 SPS 641 kl 0.0053 rew 13.64 max_stage 4.58 mult 0.257
+it 590/13020 step 906240 SPS 642 kl 0.0055 rew 13.64 max_stage 4.58 mult 0.223
+it 595/13020 step 913920 SPS 642 kl 0.0062 rew 13.80 max_stage 4.59 mult 0.233
+it 600/13020 step 921600 SPS 642 kl 0.0045 rew 13.80 max_stage 4.59 mult 0.303
+it 605/13020 step 929280 SPS 642 kl 0.0073 rew 14.33 max_stage 4.70 mult 0.263
+it 610/13020 step 936960 SPS 642 kl 0.0053 rew 13.98 max_stage 4.62 mult 0.228
+it 615/13020 step 944640 SPS 642 kl 0.0049 rew 13.98 max_stage 4.62 mult 0.238
+it 620/13020 step 952320 SPS 642 kl 0.0053 rew 13.98 max_stage 4.62 mult 0.248
+it 625/13020 step 960000 SPS 643 kl 0.0050 rew 13.91 max_stage 4.60 mult 0.258
+it 630/13020 step 967680 SPS 644 kl 0.0067 rew 13.91 max_stage 4.60 mult 0.224
+it 635/13020 step 975360 SPS 645 kl 0.0064 rew 13.89 max_stage 4.67 mult 0.233
+it 640/13020 step 983040 SPS 643 kl 0.0043 rew 13.89 max_stage 4.67 mult 0.194
+it 645/13020 step 990720 SPS 643 kl 0.0063 rew 13.89 max_stage 4.67 mult 0.243
+it 650/13020 step 998400 SPS 641 kl 0.0065 rew 13.89 max_stage 4.67 mult 0.211
+it 655/13020 step 1006080 SPS 641 kl 0.0040 rew 13.89 max_stage 4.67 mult 0.330
+it 660/13020 step 1013760 SPS 640 kl 0.0066 rew 13.89 max_stage 4.67 mult 0.229
+it 665/13020 step 1021440 SPS 641 kl 0.0063 rew 13.89 max_stage 4.67 mult 0.199
+it 670/13020 step 1029120 SPS 643 kl 0.0053 rew 14.00 max_stage 4.65 mult 0.207
+it 675/13020 step 1036800 SPS 640 kl 0.0041 rew 14.31 max_stage 4.79 mult 0.323
+it 680/13020 step 1044480 SPS 642 kl 0.0059 rew 14.31 max_stage 4.79 mult 0.225
+it 685/13020 step 1052160 SPS 641 kl 0.0055 rew 14.31 max_stage 4.79 mult 0.234
+it 690/13020 step 1059840 SPS 641 kl 0.0066 rew 14.31 max_stage 4.79 mult 0.292
+it 695/13020 step 1067520 SPS 641 kl 0.0052 rew 14.31 max_stage 4.79 mult 0.254
+it 700/13020 step 1075200 SPS 639 kl 0.0071 rew 14.31 max_stage 4.79 mult 0.264
+it 705/13020 step 1082880 SPS 638 kl 0.0068 rew 14.31 max_stage 4.79 mult 0.275
+it 710/13020 step 1090560 SPS 639 kl 0.0037 rew 14.31 max_stage 4.79 mult 0.239
+it 715/13020 step 1098240 SPS 638 kl 0.0054 rew 14.31 max_stage 4.79 mult 0.208
+it 720/13020 step 1105920 SPS 639 kl 0.0047 rew 14.31 max_stage 4.79 mult 0.216
+it 725/13020 step 1113600 SPS 638 kl 0.0052 rew 13.91 max_stage 4.68 mult 0.225
+it 730/13020 step 1121280 SPS 639 kl 0.0047 rew 13.91 max_stage 4.68 mult 0.352
+it 735/13020 step 1128960 SPS 639 kl 0.0048 rew 13.91 max_stage 4.68 mult 0.204
+it 740/13020 step 1136640 SPS 638 kl 0.0055 rew 13.91 max_stage 4.68 mult 0.212
+it 745/13020 step 1144320 SPS 639 kl 0.0063 rew 13.91 max_stage 4.68 mult 0.265
+it 750/13020 step 1152000 SPS 640 kl 0.0060 rew 13.91 max_stage 4.68 mult 0.331
+it 755/13020 step 1159680 SPS 640 kl 0.0040 rew 14.36 max_stage 4.74 mult 0.192
+it 760/13020 step 1167360 SPS 640 kl 0.0055 rew 14.36 max_stage 4.74 mult 0.240
+it 765/13020 step 1175040 SPS 639 kl 0.0053 rew 14.18 max_stage 4.70 mult 0.250
+it 770/13020 step 1182720 SPS 640 kl 0.0059 rew 14.07 max_stage 4.68 mult 0.260
+it 775/13020 step 1190400 SPS 639 kl 0.0040 rew 14.24 max_stage 4.69 mult 0.271
+it 780/13020 step 1198080 SPS 641 kl 0.0055 rew 14.24 max_stage 4.69 mult 0.282
+it 785/13020 step 1205760 SPS 639 kl 0.0039 rew 14.24 max_stage 4.69 mult 0.294
+it 790/13020 step 1213440 SPS 640 kl 0.0057 rew 14.24 max_stage 4.69 mult 0.306
+it 795/13020 step 1221120 SPS 640 kl 0.0065 rew 14.24 max_stage 4.69 mult 0.266
+it 800/13020 step 1228800 SPS 639 kl 0.0042 rew 14.24 max_stage 4.69 mult 0.192
+it 805/13020 step 1236480 SPS 640 kl 0.0056 rew 14.04 max_stage 4.65 mult 0.200
+it 810/13020 step 1244160 SPS 639 kl 0.0069 rew 14.04 max_stage 4.65 mult 0.313
+it 815/13020 step 1251840 SPS 640 kl 0.0062 rew 14.27 max_stage 4.70 mult 0.217
+it 820/13020 step 1259520 SPS 639 kl 0.0055 rew 14.00 max_stage 4.65 mult 0.226
+it 825/13020 step 1267200 SPS 640 kl 0.0060 rew 14.00 max_stage 4.65 mult 0.236
+it 830/13020 step 1274880 SPS 639 kl 0.0054 rew 14.41 max_stage 4.71 mult 0.236
+it 835/13020 step 1282560 SPS 639 kl 0.0036 rew 14.66 max_stage 4.76 mult 0.246
+it 840/13020 step 1290240 SPS 637 kl 0.0086 rew 14.66 max_stage 4.76 mult 0.320
+it 845/13020 step 1297920 SPS 634 kl 0.0055 rew 14.66 max_stage 4.76 mult 0.267
+it 850/13020 step 1305600 SPS 634 kl 0.0042 rew 14.66 max_stage 4.76 mult 0.278
+it 855/13020 step 1313280 SPS 634 kl 0.0058 rew 14.66 max_stage 4.76 mult 0.289
+it 860/13020 step 1320960 SPS 634 kl 0.0066 rew 14.66 max_stage 4.76 mult 0.301
+it 865/13020 step 1328640 SPS 632 kl 0.0057 rew 14.66 max_stage 4.76 mult 0.251
+it 870/13020 step 1336320 SPS 632 kl 0.0057 rew 14.66 max_stage 4.76 mult 0.262
+it 875/13020 step 1344000 SPS 633 kl 0.0066 rew 14.66 max_stage 4.76 mult 0.272
+it 880/13020 step 1351680 SPS 630 kl 0.0042 rew 14.66 max_stage 4.76 mult 0.341
+it 885/13020 step 1359360 SPS 630 kl 0.0075 rew 14.66 max_stage 4.76 mult 0.296
+it 890/13020 step 1367040 SPS 631 kl 0.0055 rew 14.66 max_stage 4.76 mult 0.257
+it 895/13020 step 1374720 SPS 631 kl 0.0060 rew 14.66 max_stage 4.76 mult 0.223
+it 900/13020 step 1382400 SPS 630 kl 0.0043 rew 14.66 max_stage 4.76 mult 0.290
+it 905/13020 step 1390080 SPS 631 kl 0.0069 rew 14.66 max_stage 4.76 mult 0.210
+it 910/13020 step 1397760 SPS 630 kl 0.0052 rew 14.66 max_stage 4.76 mult 0.219
+it 915/13020 step 1405440 SPS 630 kl 0.0070 rew 14.57 max_stage 4.73 mult 0.285
+it 920/13020 step 1413120 SPS 631 kl 0.0069 rew 14.42 max_stage 4.72 mult 0.247
+it 925/13020 step 1420800 SPS 631 kl 0.0060 rew 14.42 max_stage 4.72 mult 0.309
+it 930/13020 step 1428480 SPS 631 kl 0.0062 rew 14.52 max_stage 4.78 mult 0.268
+it 935/13020 step 1436160 SPS 630 kl 0.0039 rew 14.52 max_stage 4.78 mult 0.335
+it 940/13020 step 1443840 SPS 630 kl 0.0064 rew 14.52 max_stage 4.78 mult 0.242
+it 945/13020 step 1451520 SPS 630 kl 0.0043 rew 14.79 max_stage 4.80 mult 0.303
+it 950/13020 step 1459200 SPS 630 kl 0.0056 rew 14.79 max_stage 4.80 mult 0.263
+it 955/13020 step 1466880 SPS 629 kl 0.0059 rew 14.79 max_stage 4.80 mult 0.274
+it 960/13020 step 1474560 SPS 628 kl 0.0057 rew 14.79 max_stage 4.80 mult 0.228
+it 965/13020 step 1482240 SPS 629 kl 0.0050 rew 14.89 max_stage 4.82 mult 0.357
+it 970/13020 step 1489920 SPS 630 kl 0.0058 rew 14.89 max_stage 4.82 mult 0.258
+it 975/13020 step 1497600 SPS 629 kl 0.0058 rew 14.89 max_stage 4.82 mult 0.187
+it 980/13020 step 1505280 SPS 629 kl 0.0054 rew 14.89 max_stage 4.82 mult 0.194
+it 985/13020 step 1512960 SPS 628 kl 0.0074 rew 14.89 max_stage 4.82 mult 0.304
+it 990/13020 step 1520640 SPS 628 kl 0.0048 rew 15.03 max_stage 4.82 mult 0.264
+it 995/13020 step 1528320 SPS 629 kl 0.0064 rew 15.09 max_stage 4.84 mult 0.229
+it 1000/13020 step 1536000 SPS 628 kl 0.0060 rew 15.09 max_stage 4.84 mult 0.199
+it 1005/13020 step 1543680 SPS 628 kl 0.0055 rew 15.09 max_stage 4.84 mult 0.199
+it 1010/13020 step 1551360 SPS 629 kl 0.0064 rew 15.32 max_stage 4.90 mult 0.248
+it 1015/13020 step 1559040 SPS 629 kl 0.0078 rew 15.01 max_stage 4.82 mult 0.311
+it 1020/13020 step 1566720 SPS 630 kl 0.0052 rew 15.27 max_stage 4.85 mult 0.150
+it 1025/13020 step 1574400 SPS 629 kl 0.0046 rew 15.41 max_stage 4.86 mult 0.337
+it 1030/13020 step 1582080 SPS 630 kl 0.0068 rew 15.41 max_stage 4.86 mult 0.234
+it 1035/13020 step 1589760 SPS 630 kl 0.0058 rew 15.41 max_stage 4.86 mult 0.195
+it 1040/13020 step 1597440 SPS 630 kl 0.0039 rew 15.41 max_stage 4.86 mult 0.254
+it 1045/13020 step 1605120 SPS 630 kl 0.0047 rew 15.41 max_stage 4.86 mult 0.331
+it 1050/13020 step 1612800 SPS 628 kl 0.0069 rew 15.41 max_stage 4.86 mult 0.239
+it 1055/13020 step 1620480 SPS 629 kl 0.0069 rew 15.41 max_stage 4.86 mult 0.249
+it 1060/13020 step 1628160 SPS 628 kl 0.0078 rew 15.41 max_stage 4.86 mult 0.259
+it 1065/13020 step 1635840 SPS 629 kl 0.0055 rew 15.51 max_stage 4.89 mult 0.225
+it 1070/13020 step 1643520 SPS 629 kl 0.0058 rew 15.51 max_stage 4.89 mult 0.235
+it 1075/13020 step 1651200 SPS 629 kl 0.0068 rew 15.85 max_stage 4.94 mult 0.244
+it 1080/13020 step 1658880 SPS 629 kl 0.0069 rew 15.85 max_stage 4.94 mult 0.212
+it 1085/13020 step 1666560 SPS 629 kl 0.0055 rew 15.85 max_stage 4.94 mult 0.221
+it 1090/13020 step 1674240 SPS 629 kl 0.0060 rew 15.85 max_stage 4.94 mult 0.230
+it 1095/13020 step 1681920 SPS 628 kl 0.0054 rew 15.85 max_stage 4.94 mult 0.240
+it 1100/13020 step 1689600 SPS 628 kl 0.0062 rew 16.09 max_stage 4.95 mult 0.208
+it 1105/13020 step 1697280 SPS 628 kl 0.0073 rew 15.92 max_stage 4.91 mult 0.181
+it 1110/13020 step 1704960 SPS 628 kl 0.0057 rew 15.92 max_stage 4.91 mult 0.226
+it 1115/13020 step 1712640 SPS 628 kl 0.0056 rew 15.92 max_stage 4.91 mult 0.196
+it 1120/13020 step 1720320 SPS 628 kl 0.0081 rew 15.92 max_stage 4.91 mult 0.204
+it 1125/13020 step 1728000 SPS 628 kl 0.0060 rew 15.92 max_stage 4.91 mult 0.213
+it 1130/13020 step 1735680 SPS 627 kl 0.0066 rew 15.92 max_stage 4.91 mult 0.185
+it 1135/13020 step 1743360 SPS 626 kl 0.0047 rew 15.92 max_stage 4.91 mult 0.289
+it 1140/13020 step 1751040 SPS 627 kl 0.0049 rew 15.92 max_stage 4.91 mult 0.301
+it 1145/13020 step 1758720 SPS 627 kl 0.0055 rew 15.92 max_stage 4.91 mult 0.209
+it 1150/13020 step 1766400 SPS 626 kl 0.0066 rew 15.92 max_stage 4.91 mult 0.181
+it 1155/13020 step 1774080 SPS 626 kl 0.0045 rew 15.92 max_stage 4.91 mult 0.283
+it 1160/13020 step 1781760 SPS 626 kl 0.0065 rew 15.92 max_stage 4.91 mult 0.197
+it 1165/13020 step 1789440 SPS 625 kl 0.0050 rew 15.92 max_stage 4.91 mult 0.256
+it 1170/13020 step 1797120 SPS 624 kl 0.0049 rew 15.92 max_stage 4.91 mult 0.333
+it 1175/13020 step 1804800 SPS 624 kl 0.0056 rew 15.92 max_stage 4.91 mult 0.231
+it 1180/13020 step 1812480 SPS 624 kl 0.0070 rew 15.92 max_stage 4.91 mult 0.241
+it 1185/13020 step 1820160 SPS 625 kl 0.0042 rew 15.92 max_stage 4.91 mult 0.251
+it 1190/13020 step 1827840 SPS 624 kl 0.0056 rew 15.92 max_stage 4.91 mult 0.209
+it 1195/13020 step 1835520 SPS 624 kl 0.0050 rew 15.92 max_stage 4.91 mult 0.218
+it 1200/13020 step 1843200 SPS 623 kl 0.0059 rew 16.30 max_stage 4.97 mult 0.189
+it 1205/13020 step 1850880 SPS 624 kl 0.0059 rew 16.30 max_stage 4.97 mult 0.197
+it 1210/13020 step 1858560 SPS 625 kl 0.0065 rew 16.57 max_stage 5.00 mult 0.205
+it 1215/13020 step 1866240 SPS 625 kl 0.0063 rew 16.57 max_stage 5.00 mult 0.214
+it 1220/13020 step 1873920 SPS 624 kl 0.0056 rew 16.57 max_stage 5.00 mult 0.178
+it 1225/13020 step 1881600 SPS 625 kl 0.0038 rew 16.57 max_stage 5.00 mult 0.279
+it 1230/13020 step 1889280 SPS 625 kl 0.0050 rew 16.50 max_stage 5.01 mult 0.193
+it 1235/13020 step 1896960 SPS 625 kl 0.0064 rew 16.78 max_stage 5.05 mult 0.201
+it 1240/13020 step 1904640 SPS 625 kl 0.0083 rew 16.78 max_stage 5.05 mult 0.252
+it 1245/13020 step 1912320 SPS 626 kl 0.0057 rew 16.85 max_stage 5.05 mult 0.219
+it 1250/13020 step 1920000 SPS 625 kl 0.0045 rew 16.85 max_stage 5.05 mult 0.285
+it 1255/13020 step 1927680 SPS 626 kl 0.0049 rew 16.85 max_stage 5.05 mult 0.297
+it 1260/13020 step 1935360 SPS 625 kl 0.0057 rew 16.99 max_stage 5.05 mult 0.206
+it 1265/13020 step 1943040 SPS 625 kl 0.0056 rew 17.01 max_stage 5.05 mult 0.214
+it 1270/13020 step 1950720 SPS 625 kl 0.0054 rew 17.01 max_stage 5.05 mult 0.223
+it 1275/13020 step 1958400 SPS 625 kl 0.0053 rew 17.01 max_stage 5.05 mult 0.194
+it 1280/13020 step 1966080 SPS 626 kl 0.0032 rew 17.01 max_stage 5.05 mult 0.253
+it 1285/13020 step 1973760 SPS 626 kl 0.0061 rew 17.25 max_stage 5.10 mult 0.219
+it 1290/13020 step 1981440 SPS 626 kl 0.0064 rew 17.25 max_stage 5.10 mult 0.183
+it 1295/13020 step 1989120 SPS 626 kl 0.0057 rew 17.25 max_stage 5.10 mult 0.238
+it 1300/13020 step 1996800 SPS 626 kl 0.0076 rew 17.25 max_stage 5.10 mult 0.165
+it 1305/13020 step 2004480 SPS 625 kl 0.0062 rew 17.20 max_stage 5.08 mult 0.172
+it 1310/13020 step 2012160 SPS 626 kl 0.0056 rew 17.20 max_stage 5.08 mult 0.179
+it 1315/13020 step 2019840 SPS 624 kl 0.0029 rew 17.22 max_stage 5.12 mult 0.233
+it 1320/13020 step 2027520 SPS 625 kl 0.0058 rew 17.22 max_stage 5.12 mult 0.169
+it 1325/13020 step 2035200 SPS 625 kl 0.0067 rew 17.22 max_stage 5.12 mult 0.211
+it 1330/13020 step 2042880 SPS 625 kl 0.0065 rew 17.07 max_stage 5.10 mult 0.220
+it 1335/13020 step 2050560 SPS 624 kl 0.0064 rew 17.07 max_stage 5.10 mult 0.229
+it 1340/13020 step 2058240 SPS 624 kl 0.0060 rew 17.07 max_stage 5.10 mult 0.239
+it 1345/13020 step 2065920 SPS 623 kl 0.0031 rew 17.07 max_stage 5.10 mult 0.248
+it 1350/13020 step 2073600 SPS 624 kl 0.0052 rew 17.07 max_stage 5.10 mult 0.259
+it 1355/13020 step 2081280 SPS 624 kl 0.0070 rew 16.92 max_stage 5.06 mult 0.225
+it 1360/13020 step 2088960 SPS 623 kl 0.0072 rew 16.92 max_stage 5.06 mult 0.234
+it 1365/13020 step 2096640 SPS 623 kl 0.0067 rew 16.92 max_stage 5.06 mult 0.244
+it 1370/13020 step 2104320 SPS 623 kl 0.0051 rew 16.92 max_stage 5.06 mult 0.212
+it 1375/13020 step 2112000 SPS 623 kl 0.0050 rew 16.92 max_stage 5.06 mult 0.276
+it 1380/13020 step 2119680 SPS 623 kl 0.0053 rew 16.92 max_stage 5.06 mult 0.230
+it 1385/13020 step 2127360 SPS 622 kl 0.0045 rew 16.92 max_stage 5.06 mult 0.199
+it 1390/13020 step 2135040 SPS 622 kl 0.0076 rew 16.99 max_stage 5.05 mult 0.260
+it 1395/13020 step 2142720 SPS 622 kl 0.0071 rew 16.99 max_stage 5.05 mult 0.225
+it 1400/13020 step 2150400 SPS 622 kl 0.0065 rew 16.99 max_stage 5.05 mult 0.235
+it 1405/13020 step 2158080 SPS 622 kl 0.0047 rew 16.99 max_stage 5.05 mult 0.204
+it 1410/13020 step 2165760 SPS 622 kl 0.0040 rew 16.99 max_stage 5.05 mult 0.212
+it 1415/13020 step 2173440 SPS 622 kl 0.0068 rew 16.99 max_stage 5.05 mult 0.265
+it 1420/13020 step 2181120 SPS 621 kl 0.0064 rew 16.99 max_stage 5.05 mult 0.230
+it 1425/13020 step 2188800 SPS 621 kl 0.0048 rew 16.99 max_stage 5.05 mult 0.200
+it 1430/13020 step 2196480 SPS 622 kl 0.0061 rew 16.99 max_stage 5.05 mult 0.260
+it 1435/13020 step 2204160 SPS 622 kl 0.0052 rew 16.99 max_stage 5.05 mult 0.226
+it 1440/13020 step 2211840 SPS 622 kl 0.0048 rew 16.99 max_stage 5.05 mult 0.339
+it 1445/13020 step 2219520 SPS 622 kl 0.0038 rew 16.93 max_stage 5.02 mult 0.245
+it 1450/13020 step 2227200 SPS 622 kl 0.0068 rew 16.93 max_stage 5.02 mult 0.213
+it 1455/13020 step 2234880 SPS 622 kl 0.0056 rew 16.93 max_stage 5.02 mult 0.222
+it 1460/13020 step 2242560 SPS 621 kl 0.0051 rew 16.93 max_stage 5.02 mult 0.231
+it 1465/13020 step 2250240 SPS 622 kl 0.0055 rew 16.93 max_stage 5.02 mult 0.241
+it 1470/13020 step 2257920 SPS 622 kl 0.0065 rew 16.93 max_stage 5.02 mult 0.209
+it 1475/13020 step 2265600 SPS 621 kl 0.0069 rew 17.01 max_stage 5.02 mult 0.272
+it 1480/13020 step 2273280 SPS 621 kl 0.0056 rew 17.01 max_stage 5.02 mult 0.236
+it 1485/13020 step 2280960 SPS 621 kl 0.0067 rew 17.01 max_stage 5.02 mult 0.246
+it 1490/13020 step 2288640 SPS 620 kl 0.0045 rew 17.01 max_stage 5.02 mult 0.256
+it 1495/13020 step 2296320 SPS 620 kl 0.0034 rew 17.11 max_stage 5.06 mult 0.185
+it 1500/13020 step 2304000 SPS 620 kl 0.0066 rew 17.32 max_stage 5.08 mult 0.232
+it 1505/13020 step 2311680 SPS 621 kl 0.0053 rew 17.32 max_stage 5.08 mult 0.201
+it 1510/13020 step 2319360 SPS 621 kl 0.0060 rew 17.45 max_stage 5.12 mult 0.209
+it 1515/13020 step 2327040 SPS 621 kl 0.0066 rew 17.54 max_stage 5.16 mult 0.218
+it 1520/13020 step 2334720 SPS 622 kl 0.0066 rew 17.64 max_stage 5.18 mult 0.273
+it 1525/13020 step 2342400 SPS 622 kl 0.0063 rew 17.68 max_stage 5.17 mult 0.158
+it 1530/13020 step 2350080 SPS 622 kl 0.0042 rew 17.68 max_stage 5.17 mult 0.205
+it 1535/13020 step 2357760 SPS 622 kl 0.0030 rew 17.68 max_stage 5.17 mult 0.257
+it 1540/13020 step 2365440 SPS 623 kl 0.0067 rew 17.85 max_stage 5.20 mult 0.267
+it 1545/13020 step 2373120 SPS 623 kl 0.0074 rew 17.85 max_stage 5.20 mult 0.232
+it 1550/13020 step 2380800 SPS 623 kl 0.0046 rew 17.85 max_stage 5.20 mult 0.168
+it 1555/13020 step 2388480 SPS 622 kl 0.0059 rew 17.85 max_stage 5.20 mult 0.175
+it 1560/13020 step 2396160 SPS 623 kl 0.0051 rew 17.85 max_stage 5.20 mult 0.182
+it 1565/13020 step 2403840 SPS 622 kl 0.0043 rew 17.82 max_stage 5.18 mult 0.342
+it 1570/13020 step 2411520 SPS 622 kl 0.0062 rew 17.82 max_stage 5.18 mult 0.237
+it 1575/13020 step 2419200 SPS 623 kl 0.0050 rew 17.82 max_stage 5.18 mult 0.247
+it 1580/13020 step 2426880 SPS 622 kl 0.0053 rew 17.82 max_stage 5.18 mult 0.206
+it 1585/13020 step 2434560 SPS 623 kl 0.0059 rew 17.82 max_stage 5.18 mult 0.215
+it 1590/13020 step 2442240 SPS 622 kl 0.0070 rew 17.82 max_stage 5.18 mult 0.223
+it 1595/13020 step 2449920 SPS 622 kl 0.0076 rew 17.82 max_stage 5.18 mult 0.233
+it 1600/13020 step 2457600 SPS 622 kl 0.0046 rew 17.82 max_stage 5.18 mult 0.303
+it 1605/13020 step 2465280 SPS 622 kl 0.0061 rew 17.82 max_stage 5.18 mult 0.175
+it 1610/13020 step 2472960 SPS 622 kl 0.0074 rew 17.82 max_stage 5.18 mult 0.274
+it 1615/13020 step 2480640 SPS 622 kl 0.0059 rew 17.76 max_stage 5.15 mult 0.228
+it 1620/13020 step 2488320 SPS 622 kl 0.0043 rew 17.76 max_stage 5.15 mult 0.357
+it 1625/13020 step 2496000 SPS 621 kl 0.0051 rew 17.79 max_stage 5.15 mult 0.207
+it 1630/13020 step 2503680 SPS 621 kl 0.0052 rew 17.86 max_stage 5.17 mult 0.215
+it 1635/13020 step 2511360 SPS 622 kl 0.0068 rew 17.86 max_stage 5.17 mult 0.156
+it 1640/13020 step 2519040 SPS 622 kl 0.0045 rew 17.86 max_stage 5.17 mult 0.162
+it 1645/13020 step 2526720 SPS 622 kl 0.0056 rew 17.86 max_stage 5.17 mult 0.253
+it 1650/13020 step 2534400 SPS 622 kl 0.0055 rew 17.86 max_stage 5.17 mult 0.220
+it 1655/13020 step 2542080 SPS 622 kl 0.0068 rew 17.86 max_stage 5.17 mult 0.229
+it 1660/13020 step 2549760 SPS 621 kl 0.0060 rew 17.76 max_stage 5.16 mult 0.191
+it 1665/13020 step 2557440 SPS 622 kl 0.0064 rew 17.70 max_stage 5.15 mult 0.249
+it 1670/13020 step 2565120 SPS 622 kl 0.0058 rew 17.70 max_stage 5.15 mult 0.216
+it 1675/13020 step 2572800 SPS 622 kl 0.0063 rew 17.70 max_stage 5.15 mult 0.156
+it 1680/13020 step 2580480 SPS 623 kl 0.0057 rew 17.70 max_stage 5.15 mult 0.135
+it 1685/13020 step 2588160 SPS 621 kl 0.0067 rew 17.60 max_stage 5.13 mult 0.212
+it 1690/13020 step 2595840 SPS 622 kl 0.0043 rew 17.55 max_stage 5.12 mult 0.265
+it 1695/13020 step 2603520 SPS 622 kl 0.0043 rew 17.55 max_stage 5.12 mult 0.153
+it 1700/13020 step 2611200 SPS 622 kl 0.0056 rew 17.55 max_stage 5.12 mult 0.239
+it 1705/13020 step 2618880 SPS 622 kl 0.0058 rew 17.55 max_stage 5.12 mult 0.208
+it 1710/13020 step 2626560 SPS 622 kl 0.0052 rew 17.55 max_stage 5.12 mult 0.180
+it 1715/13020 step 2634240 SPS 621 kl 0.0040 rew 17.55 max_stage 5.12 mult 0.282
+it 1720/13020 step 2641920 SPS 621 kl 0.0060 rew 17.55 max_stage 5.12 mult 0.204
+it 1725/13020 step 2649600 SPS 621 kl 0.0061 rew 17.55 max_stage 5.12 mult 0.212
+it 1730/13020 step 2657280 SPS 621 kl 0.0057 rew 17.55 max_stage 5.12 mult 0.221
+it 1735/13020 step 2664960 SPS 621 kl 0.0060 rew 17.55 max_stage 5.12 mult 0.230
+it 1740/13020 step 2672640 SPS 622 kl 0.0036 rew 17.62 max_stage 5.16 mult 0.167
+it 1745/13020 step 2680320 SPS 621 kl 0.0080 rew 17.67 max_stage 5.18 mult 0.260
+it 1750/13020 step 2688000 SPS 622 kl 0.0059 rew 17.67 max_stage 5.18 mult 0.217
+it 1755/13020 step 2695680 SPS 621 kl 0.0042 rew 17.67 max_stage 5.18 mult 0.226
+it 1760/13020 step 2703360 SPS 621 kl 0.0041 rew 17.67 max_stage 5.18 mult 0.235
+it 1765/13020 step 2711040 SPS 621 kl 0.0057 rew 17.67 max_stage 5.18 mult 0.196
+it 1770/13020 step 2718720 SPS 621 kl 0.0049 rew 17.67 max_stage 5.18 mult 0.204
+it 1775/13020 step 2726400 SPS 617 kl 0.0039 rew 17.61 max_stage 5.18 mult 0.213
+it 1780/13020 step 2734080 SPS 617 kl 0.0035 rew 17.61 max_stage 5.18 mult 0.222
+it 1785/13020 step 2741760 SPS 618 kl 0.0059 rew 17.61 max_stage 5.18 mult 0.231
+it 1790/13020 step 2749440 SPS 619 kl 0.0061 rew 17.61 max_stage 5.18 mult 0.200
+it 1795/13020 step 2757120 SPS 619 kl 0.0054 rew 17.61 max_stage 5.18 mult 0.174
+it 1800/13020 step 2764800 SPS 619 kl 0.0051 rew 17.61 max_stage 5.18 mult 0.181
+it 1805/13020 step 2772480 SPS 619 kl 0.0055 rew 17.61 max_stage 5.18 mult 0.236
+it 1810/13020 step 2780160 SPS 620 kl 0.0053 rew 17.61 max_stage 5.18 mult 0.171
+it 1815/13020 step 2787840 SPS 620 kl 0.0072 rew 17.61 max_stage 5.18 mult 0.222
+it 1820/13020 step 2795520 SPS 619 kl 0.0058 rew 17.61 max_stage 5.18 mult 0.193
+it 1825/13020 step 2803200 SPS 619 kl 0.0061 rew 17.61 max_stage 5.18 mult 0.201
+it 1830/13020 step 2810880 SPS 619 kl 0.0066 rew 17.61 max_stage 5.18 mult 0.262
+it 1835/13020 step 2818560 SPS 620 kl 0.0063 rew 17.61 max_stage 5.18 mult 0.218
+it 1840/13020 step 2826240 SPS 620 kl 0.0064 rew 17.25 max_stage 5.10 mult 0.182
+it 1845/13020 step 2833920 SPS 620 kl 0.0062 rew 17.10 max_stage 5.06 mult 0.189
+it 1850/13020 step 2841600 SPS 621 kl 0.0058 rew 16.87 max_stage 5.00 mult 0.197
+it 1855/13020 step 2849280 SPS 621 kl 0.0071 rew 16.87 max_stage 5.00 mult 0.171
+it 1860/13020 step 2856960 SPS 621 kl 0.0071 rew 16.87 max_stage 5.00 mult 0.178
+it 1865/13020 step 2864640 SPS 620 kl 0.0072 rew 16.87 max_stage 5.00 mult 0.232
+it 1870/13020 step 2872320 SPS 621 kl 0.0070 rew 16.87 max_stage 5.00 mult 0.202
+it 1875/13020 step 2880000 SPS 621 kl 0.0046 rew 16.87 max_stage 5.00 mult 0.140
+it 1880/13020 step 2887680 SPS 621 kl 0.0071 rew 16.78 max_stage 4.98 mult 0.219
+it 1885/13020 step 2895360 SPS 620 kl 0.0049 rew 16.78 max_stage 4.98 mult 0.228
+it 1890/13020 step 2903040 SPS 621 kl 0.0043 rew 16.62 max_stage 4.97 mult 0.237
+it 1895/13020 step 2910720 SPS 621 kl 0.0068 rew 16.49 max_stage 4.95 mult 0.206
+it 1900/13020 step 2918400 SPS 621 kl 0.0052 rew 16.35 max_stage 4.92 mult 0.215
+it 1905/13020 step 2926080 SPS 621 kl 0.0051 rew 16.35 max_stage 4.92 mult 0.179
+it 1910/13020 step 2933760 SPS 621 kl 0.0074 rew 16.22 max_stage 4.90 mult 0.155
+it 1915/13020 step 2941440 SPS 621 kl 0.0040 rew 16.22 max_stage 4.90 mult 0.243
+it 1920/13020 step 2949120 SPS 621 kl 0.0062 rew 16.22 max_stage 4.90 mult 0.211
+it 1925/13020 step 2956800 SPS 621 kl 0.0044 rew 16.22 max_stage 4.90 mult 0.152
+it 1930/13020 step 2964480 SPS 621 kl 0.0058 rew 16.22 max_stage 4.90 mult 0.238
+it 1935/13020 step 2972160 SPS 621 kl 0.0046 rew 16.22 max_stage 4.90 mult 0.248
+it 1940/13020 step 2979840 SPS 621 kl 0.0067 rew 16.22 max_stage 4.90 mult 0.215
+it 1945/13020 step 2987520 SPS 621 kl 0.0048 rew 16.22 max_stage 4.90 mult 0.269
+it 1950/13020 step 2995200 SPS 621 kl 0.0040 rew 16.18 max_stage 4.88 mult 0.234
+it 1955/13020 step 3002880 SPS 621 kl 0.0040 rew 16.12 max_stage 4.87 mult 0.243
+it 1960/13020 step 3010560 SPS 621 kl 0.0054 rew 16.02 max_stage 4.85 mult 0.211
+it 1965/13020 step 3018240 SPS 621 kl 0.0065 rew 16.02 max_stage 4.85 mult 0.176
+it 1970/13020 step 3025920 SPS 621 kl 0.0041 rew 16.02 max_stage 4.85 mult 0.229
+it 1975/13020 step 3033600 SPS 621 kl 0.0067 rew 16.02 max_stage 4.85 mult 0.191
+it 1980/13020 step 3041280 SPS 621 kl 0.0044 rew 16.04 max_stage 4.84 mult 0.166
+it 1985/13020 step 3048960 SPS 621 kl 0.0055 rew 15.97 max_stage 4.82 mult 0.173
+it 1990/13020 step 3056640 SPS 622 kl 0.0063 rew 15.97 max_stage 4.82 mult 0.225
+it 1995/13020 step 3064320 SPS 622 kl 0.0051 rew 15.97 max_stage 4.82 mult 0.195
+it 2000/13020 step 3072000 SPS 622 kl 0.0067 rew 15.93 max_stage 4.81 mult 0.203
+it 2005/13020 step 3079680 SPS 622 kl 0.0064 rew 15.91 max_stage 4.79 mult 0.212
+it 2010/13020 step 3087360 SPS 622 kl 0.0062 rew 15.83 max_stage 4.77 mult 0.221
+it 2015/13020 step 3095040 SPS 622 kl 0.0062 rew 15.83 max_stage 4.77 mult 0.191
+it 2020/13020 step 3102720 SPS 622 kl 0.0054 rew 15.83 max_stage 4.77 mult 0.138
+it 2025/13020 step 3110400 SPS 622 kl 0.0046 rew 15.83 max_stage 4.77 mult 0.216
+it 2030/13020 step 3118080 SPS 622 kl 0.0034 rew 15.83 max_stage 4.77 mult 0.225
+it 2035/13020 step 3125760 SPS 622 kl 0.0055 rew 15.95 max_stage 4.78 mult 0.196
+it 2040/13020 step 3133440 SPS 622 kl 0.0067 rew 15.95 max_stage 4.78 mult 0.204
+it 2045/13020 step 3141120 SPS 622 kl 0.0065 rew 15.95 max_stage 4.78 mult 0.177
+it 2050/13020 step 3148800 SPS 622 kl 0.0044 rew 15.95 max_stage 4.78 mult 0.276
+it 2055/13020 step 3156480 SPS 622 kl 0.0053 rew 15.95 max_stage 4.78 mult 0.192
+it 2060/13020 step 3164160 SPS 622 kl 0.0081 rew 15.95 max_stage 4.78 mult 0.240
+it 2065/13020 step 3171840 SPS 621 kl 0.0052 rew 15.95 max_stage 4.78 mult 0.208
+it 2070/13020 step 3179520 SPS 621 kl 0.0066 rew 15.95 max_stage 4.78 mult 0.151
+it 2075/13020 step 3187200 SPS 620 kl 0.0050 rew 15.95 max_stage 4.81 mult 0.188
+it 2080/13020 step 3194880 SPS 620 kl 0.0066 rew 15.95 max_stage 4.81 mult 0.294
+it 2085/13020 step 3202560 SPS 620 kl 0.0064 rew 15.95 max_stage 4.81 mult 0.170
+it 2090/13020 step 3210240 SPS 620 kl 0.0067 rew 15.95 max_stage 4.81 mult 0.213
+it 2095/13020 step 3217920 SPS 620 kl 0.0042 rew 15.95 max_stage 4.81 mult 0.277
+it 2100/13020 step 3225600 SPS 620 kl 0.0043 rew 15.95 max_stage 4.81 mult 0.201
+it 2105/13020 step 3233280 SPS 620 kl 0.0047 rew 16.03 max_stage 4.81 mult 0.261
+it 2110/13020 step 3240960 SPS 620 kl 0.0057 rew 16.03 max_stage 4.81 mult 0.181
+it 2115/13020 step 3248640 SPS 620 kl 0.0070 rew 16.03 max_stage 4.81 mult 0.189
+it 2120/13020 step 3256320 SPS 619 kl 0.0035 rew 16.03 max_stage 4.81 mult 0.236
+it 2125/13020 step 3264000 SPS 619 kl 0.0053 rew 16.07 max_stage 4.80 mult 0.205
+it 2130/13020 step 3271680 SPS 619 kl 0.0053 rew 16.07 max_stage 4.80 mult 0.213
+it 2135/13020 step 3279360 SPS 619 kl 0.0037 rew 16.07 max_stage 4.80 mult 0.278
+it 2140/13020 step 3287040 SPS 618 kl 0.0062 rew 16.07 max_stage 4.80 mult 0.241
+it 2145/13020 step 3294720 SPS 618 kl 0.0063 rew 16.07 max_stage 4.80 mult 0.209
+it 2150/13020 step 3302400 SPS 618 kl 0.0076 rew 16.06 max_stage 4.80 mult 0.182
+it 2155/13020 step 3310080 SPS 617 kl 0.0058 rew 16.04 max_stage 4.82 mult 0.158
+it 2160/13020 step 3317760 SPS 617 kl 0.0048 rew 16.04 max_stage 4.82 mult 0.247
+it 2165/13020 step 3325440 SPS 617 kl 0.0047 rew 16.07 max_stage 4.83 mult 0.257
+it 2170/13020 step 3333120 SPS 617 kl 0.0064 rew 16.07 max_stage 4.83 mult 0.186
+it 2175/13020 step 3340800 SPS 617 kl 0.0049 rew 16.07 max_stage 4.83 mult 0.242
+it 2180/13020 step 3348480 SPS 617 kl 0.0060 rew 16.07 max_stage 4.83 mult 0.210
+it 2185/13020 step 3356160 SPS 616 kl 0.0048 rew 15.99 max_stage 4.82 mult 0.182
+it 2190/13020 step 3363840 SPS 616 kl 0.0049 rew 15.99 max_stage 4.82 mult 0.285
+it 2195/13020 step 3371520 SPS 616 kl 0.0041 rew 15.99 max_stage 4.82 mult 0.206
+it 2200/13020 step 3379200 SPS 615 kl 0.0051 rew 15.99 max_stage 4.82 mult 0.172
+it 2205/13020 step 3386880 SPS 615 kl 0.0060 rew 15.99 max_stage 4.82 mult 0.179
+it 2210/13020 step 3394560 SPS 616 kl 0.0050 rew 15.99 max_stage 4.82 mult 0.186
+it 2215/13020 step 3402240 SPS 615 kl 0.0045 rew 16.10 max_stage 4.83 mult 0.291
+it 2220/13020 step 3409920 SPS 615 kl 0.0061 rew 16.10 max_stage 4.83 mult 0.211
+it 2225/13020 step 3417600 SPS 616 kl 0.0055 rew 16.05 max_stage 4.84 mult 0.219
+it 2230/13020 step 3425280 SPS 615 kl 0.0052 rew 16.09 max_stage 4.84 mult 0.190
+it 2235/13020 step 3432960 SPS 615 kl 0.0050 rew 16.09 max_stage 4.84 mult 0.198
+it 2240/13020 step 3440640 SPS 616 kl 0.0051 rew 16.09 max_stage 4.84 mult 0.172
+it 2245/13020 step 3448320 SPS 615 kl 0.0047 rew 15.98 max_stage 4.82 mult 0.269
+it 2250/13020 step 3456000 SPS 614 kl 0.0046 rew 15.98 max_stage 4.82 mult 0.234
+it 2255/13020 step 3463680 SPS 615 kl 0.0065 rew 16.00 max_stage 4.83 mult 0.203
+it 2260/13020 step 3471360 SPS 614 kl 0.0032 rew 16.00 max_stage 4.83 mult 0.141
+it 2265/13020 step 3479040 SPS 614 kl 0.0057 rew 16.00 max_stage 4.83 mult 0.176
+it 2270/13020 step 3486720 SPS 613 kl 0.0065 rew 16.00 max_stage 4.83 mult 0.183
+it 2275/13020 step 3494400 SPS 614 kl 0.0061 rew 16.00 max_stage 4.83 mult 0.239
+it 2280/13020 step 3502080 SPS 614 kl 0.0040 rew 16.07 max_stage 4.85 mult 0.249
+it 2285/13020 step 3509760 SPS 613 kl 0.0049 rew 16.07 max_stage 4.85 mult 0.144
+it 2290/13020 step 3517440 SPS 613 kl 0.0060 rew 16.07 max_stage 4.85 mult 0.225
+it 2295/13020 step 3525120 SPS 613 kl 0.0058 rew 15.98 max_stage 4.83 mult 0.195
+it 2300/13020 step 3532800 SPS 613 kl 0.0050 rew 15.92 max_stage 4.82 mult 0.203
+it 2305/13020 step 3540480 SPS 613 kl 0.0063 rew 15.92 max_stage 4.82 mult 0.203
+it 2310/13020 step 3548160 SPS 612 kl 0.0052 rew 15.85 max_stage 4.81 mult 0.176
+it 2315/13020 step 3555840 SPS 612 kl 0.0061 rew 15.85 max_stage 4.81 mult 0.184
+it 2320/13020 step 3563520 SPS 612 kl 0.0043 rew 15.85 max_stage 4.81 mult 0.239
+it 2325/13020 step 3571200 SPS 612 kl 0.0074 rew 15.90 max_stage 4.81 mult 0.166
+it 2330/13020 step 3578880 SPS 612 kl 0.0049 rew 15.90 max_stage 4.81 mult 0.260
+it 2335/13020 step 3586560 SPS 612 kl 0.0071 rew 15.83 max_stage 4.79 mult 0.188
+it 2340/13020 step 3594240 SPS 612 kl 0.0059 rew 15.83 max_stage 4.79 mult 0.163
+it 2345/13020 step 3601920 SPS 612 kl 0.0046 rew 15.83 max_stage 4.79 mult 0.245
+it 2350/13020 step 3609600 SPS 612 kl 0.0069 rew 15.83 max_stage 4.79 mult 0.212
+it 2355/13020 step 3617280 SPS 612 kl 0.0043 rew 15.73 max_stage 4.77 mult 0.332
+it 2360/13020 step 3624960 SPS 612 kl 0.0060 rew 15.73 max_stage 4.77 mult 0.160
+it 2365/13020 step 3632640 SPS 612 kl 0.0059 rew 15.73 max_stage 4.77 mult 0.208
+it 2370/13020 step 3640320 SPS 611 kl 0.0052 rew 15.73 max_stage 4.77 mult 0.181
+it 2375/13020 step 3648000 SPS 611 kl 0.0040 rew 15.73 max_stage 4.77 mult 0.235
+it 2380/13020 step 3655680 SPS 611 kl 0.0059 rew 15.73 max_stage 4.77 mult 0.170
+it 2385/13020 step 3663360 SPS 611 kl 0.0059 rew 15.73 max_stage 4.77 mult 0.213
+it 2390/13020 step 3671040 SPS 611 kl 0.0073 rew 15.73 max_stage 4.77 mult 0.154
+it 2395/13020 step 3678720 SPS 611 kl 0.0044 rew 15.73 max_stage 4.77 mult 0.201
+it 2400/13020 step 3686400 SPS 611 kl 0.0056 rew 15.73 max_stage 4.77 mult 0.209
+it 2405/13020 step 3694080 SPS 611 kl 0.0046 rew 15.85 max_stage 4.79 mult 0.272
+it 2410/13020 step 3701760 SPS 610 kl 0.0038 rew 15.94 max_stage 4.81 mult 0.283
+it 2415/13020 step 3709440 SPS 610 kl 0.0044 rew 15.94 max_stage 4.81 mult 0.246
+it 2420/13020 step 3717120 SPS 611 kl 0.0078 rew 15.88 max_stage 4.79 mult 0.214
+it 2425/13020 step 3724800 SPS 611 kl 0.0038 rew 15.88 max_stage 4.79 mult 0.185
+it 2430/13020 step 3732480 SPS 611 kl 0.0054 rew 15.88 max_stage 4.79 mult 0.161
+it 2435/13020 step 3740160 SPS 611 kl 0.0066 rew 15.96 max_stage 4.81 mult 0.210
+it 2440/13020 step 3747840 SPS 612 kl 0.0047 rew 15.96 max_stage 4.81 mult 0.182
+it 2445/13020 step 3755520 SPS 611 kl 0.0053 rew 15.92 max_stage 4.80 mult 0.152
+it 2450/13020 step 3763200 SPS 611 kl 0.0053 rew 15.92 max_stage 4.80 mult 0.158
+it 2455/13020 step 3770880 SPS 612 kl 0.0049 rew 15.94 max_stage 4.80 mult 0.247
+it 2460/13020 step 3778560 SPS 612 kl 0.0070 rew 15.94 max_stage 4.80 mult 0.214
+it 2465/13020 step 3786240 SPS 612 kl 0.0041 rew 15.94 max_stage 4.80 mult 0.155
+it 2470/13020 step 3793920 SPS 612 kl 0.0057 rew 15.89 max_stage 4.80 mult 0.161
+it 2475/13020 step 3801600 SPS 612 kl 0.0079 rew 15.89 max_stage 4.80 mult 0.252
+it 2480/13020 step 3809280 SPS 612 kl 0.0031 rew 15.89 max_stage 4.80 mult 0.182
+it 2485/13020 step 3816960 SPS 612 kl 0.0051 rew 15.89 max_stage 4.80 mult 0.190
+it 2490/13020 step 3824640 SPS 612 kl 0.0044 rew 15.89 max_stage 4.80 mult 0.165
+it 2495/13020 step 3832320 SPS 612 kl 0.0061 rew 15.89 max_stage 4.80 mult 0.172
+it 2500/13020 step 3840000 SPS 612 kl 0.0052 rew 15.94 max_stage 4.81 mult 0.179
+it 2505/13020 step 3847680 SPS 612 kl 0.0053 rew 15.94 max_stage 4.81 mult 0.129
+it 2510/13020 step 3855360 SPS 612 kl 0.0052 rew 15.94 max_stage 4.81 mult 0.169
+it 2515/13020 step 3863040 SPS 611 kl 0.0052 rew 15.94 max_stage 4.81 mult 0.176
+it 2520/13020 step 3870720 SPS 612 kl 0.0059 rew 15.98 max_stage 4.82 mult 0.183
+it 2525/13020 step 3878400 SPS 612 kl 0.0060 rew 15.98 max_stage 4.82 mult 0.190
+it 2530/13020 step 3886080 SPS 612 kl 0.0059 rew 15.98 max_stage 4.82 mult 0.198
+it 2535/13020 step 3893760 SPS 612 kl 0.0024 rew 15.98 max_stage 4.82 mult 0.172
+it 2540/13020 step 3901440 SPS 612 kl 0.0054 rew 15.98 max_stage 4.82 mult 0.179
+it 2545/13020 step 3909120 SPS 612 kl 0.0063 rew 16.10 max_stage 4.86 mult 0.187
+it 2550/13020 step 3916800 SPS 612 kl 0.0087 rew 16.10 max_stage 4.86 mult 0.292
+it 2555/13020 step 3924480 SPS 612 kl 0.0071 rew 16.10 max_stage 4.86 mult 0.211
+it 2560/13020 step 3932160 SPS 612 kl 0.0069 rew 16.13 max_stage 4.88 mult 0.183
+it 2565/13020 step 3939840 SPS 613 kl 0.0045 rew 16.13 max_stage 4.88 mult 0.239
+it 2570/13020 step 3947520 SPS 613 kl 0.0052 rew 16.13 max_stage 4.88 mult 0.199
+it 2575/13020 step 3955200 SPS 612 kl 0.0045 rew 16.16 max_stage 4.88 mult 0.144
+it 2580/13020 step 3962880 SPS 612 kl 0.0055 rew 16.16 max_stage 4.88 mult 0.180
+it 2585/13020 step 3970560 SPS 612 kl 0.0056 rew 16.16 max_stage 4.88 mult 0.187
+it 2590/13020 step 3978240 SPS 613 kl 0.0070 rew 16.16 max_stage 4.88 mult 0.195
+it 2595/13020 step 3985920 SPS 613 kl 0.0047 rew 16.16 max_stage 4.88 mult 0.254
+it 2600/13020 step 3993600 SPS 612 kl 0.0053 rew 16.16 max_stage 4.88 mult 0.177
+it 2605/13020 step 4001280 SPS 613 kl 0.0045 rew 16.16 max_stage 4.88 mult 0.221
+it 2610/13020 step 4008960 SPS 612 kl 0.0045 rew 16.20 max_stage 4.88 mult 0.230
+it 2615/13020 step 4016640 SPS 612 kl 0.0042 rew 16.20 max_stage 4.88 mult 0.160
+it 2620/13020 step 4024320 SPS 613 kl 0.0037 rew 16.20 max_stage 4.88 mult 0.249
+it 2625/13020 step 4032000 SPS 612 kl 0.0044 rew 16.20 max_stage 4.88 mult 0.216
+it 2630/13020 step 4039680 SPS 612 kl 0.0061 rew 16.20 max_stage 4.88 mult 0.180
+it 2635/13020 step 4047360 SPS 612 kl 0.0067 rew 16.20 max_stage 4.88 mult 0.157
+it 2640/13020 step 4055040 SPS 612 kl 0.0052 rew 16.13 max_stage 4.86 mult 0.136
+it 2645/13020 step 4062720 SPS 612 kl 0.0048 rew 16.13 max_stage 4.86 mult 0.118
+it 2650/13020 step 4070400 SPS 613 kl 0.0041 rew 16.08 max_stage 4.85 mult 0.184
+it 2655/13020 step 4078080 SPS 613 kl 0.0064 rew 16.08 max_stage 4.85 mult 0.160
+it 2660/13020 step 4085760 SPS 613 kl 0.0052 rew 16.11 max_stage 4.86 mult 0.200
+it 2665/13020 step 4093440 SPS 613 kl 0.0057 rew 16.11 max_stage 4.86 mult 0.116
+it 2670/13020 step 4101120 SPS 613 kl 0.0042 rew 16.21 max_stage 4.88 mult 0.181
+it 2675/13020 step 4108800 SPS 613 kl 0.0055 rew 16.29 max_stage 4.90 mult 0.157
+it 2680/13020 step 4116480 SPS 614 kl 0.0049 rew 16.29 max_stage 4.90 mult 0.245
+it 2685/13020 step 4124160 SPS 613 kl 0.0050 rew 16.29 max_stage 4.90 mult 0.177
+it 2690/13020 step 4131840 SPS 614 kl 0.0056 rew 16.29 max_stage 4.90 mult 0.154
+it 2695/13020 step 4139520 SPS 614 kl 0.0046 rew 16.29 max_stage 4.90 mult 0.160
+it 2700/13020 step 4147200 SPS 614 kl 0.0049 rew 16.29 max_stage 4.90 mult 0.139
+it 2705/13020 step 4154880 SPS 614 kl 0.0053 rew 16.26 max_stage 4.89 mult 0.181
+it 2710/13020 step 4162560 SPS 614 kl 0.0072 rew 16.26 max_stage 4.89 mult 0.227
+it 2715/13020 step 4170240 SPS 614 kl 0.0070 rew 16.29 max_stage 4.89 mult 0.164
+it 2720/13020 step 4177920 SPS 614 kl 0.0061 rew 16.37 max_stage 4.90 mult 0.171
+it 2725/13020 step 4185600 SPS 614 kl 0.0043 rew 16.37 max_stage 4.90 mult 0.222
+it 2730/13020 step 4193280 SPS 614 kl 0.0051 rew 16.37 max_stage 4.90 mult 0.193
+it 2735/13020 step 4200960 SPS 614 kl 0.0062 rew 16.37 max_stage 4.90 mult 0.193
+it 2740/13020 step 4208640 SPS 614 kl 0.0056 rew 16.43 max_stage 4.91 mult 0.201
+it 2745/13020 step 4216320 SPS 614 kl 0.0067 rew 16.43 max_stage 4.91 mult 0.175
+it 2750/13020 step 4224000 SPS 614 kl 0.0060 rew 16.43 max_stage 4.91 mult 0.182
+it 2755/13020 step 4231680 SPS 614 kl 0.0072 rew 16.43 max_stage 4.91 mult 0.189
+it 2760/13020 step 4239360 SPS 614 kl 0.0056 rew 16.43 max_stage 4.91 mult 0.197
+it 2765/13020 step 4247040 SPS 614 kl 0.0049 rew 16.38 max_stage 4.90 mult 0.257
+it 2770/13020 step 4254720 SPS 614 kl 0.0049 rew 16.38 max_stage 4.90 mult 0.268
+it 2775/13020 step 4262400 SPS 614 kl 0.0051 rew 16.38 max_stage 4.90 mult 0.194
+it 2780/13020 step 4270080 SPS 614 kl 0.0057 rew 16.38 max_stage 4.90 mult 0.168
+it 2785/13020 step 4277760 SPS 614 kl 0.0059 rew 16.38 max_stage 4.90 mult 0.210
+it 2790/13020 step 4285440 SPS 614 kl 0.0042 rew 16.38 max_stage 4.90 mult 0.219
+it 2795/13020 step 4293120 SPS 614 kl 0.0058 rew 16.38 max_stage 4.90 mult 0.158
+it 2800/13020 step 4300800 SPS 614 kl 0.0066 rew 16.38 max_stage 4.90 mult 0.206
+it 2805/13020 step 4308480 SPS 614 kl 0.0049 rew 16.38 max_stage 4.90 mult 0.149
+it 2810/13020 step 4316160 SPS 614 kl 0.0036 rew 16.38 max_stage 4.90 mult 0.194
+it 2815/13020 step 4323840 SPS 614 kl 0.0068 rew 16.38 max_stage 4.90 mult 0.202
+it 2820/13020 step 4331520 SPS 614 kl 0.0073 rew 16.38 max_stage 4.90 mult 0.211
+it 2825/13020 step 4339200 SPS 614 kl 0.0068 rew 16.32 max_stage 4.90 mult 0.183
+it 2830/13020 step 4346880 SPS 614 kl 0.0068 rew 16.28 max_stage 4.89 mult 0.191
+it 2835/13020 step 4354560 SPS 614 kl 0.0045 rew 16.41 max_stage 4.90 mult 0.238
+it 2840/13020 step 4362240 SPS 614 kl 0.0071 rew 16.41 max_stage 4.90 mult 0.172
+it 2845/13020 step 4369920 SPS 614 kl 0.0074 rew 16.41 max_stage 4.90 mult 0.150
+it 2850/13020 step 4377600 SPS 614 kl 0.0052 rew 16.41 max_stage 4.90 mult 0.195
+it 2855/13020 step 4385280 SPS 614 kl 0.0069 rew 16.38 max_stage 4.90 mult 0.169
+it 2860/13020 step 4392960 SPS 614 kl 0.0047 rew 16.38 max_stage 4.90 mult 0.220
+it 2865/13020 step 4400640 SPS 614 kl 0.0048 rew 16.38 max_stage 4.90 mult 0.159
+it 2870/13020 step 4408320 SPS 614 kl 0.0048 rew 16.38 max_stage 4.90 mult 0.207
+it 2875/13020 step 4416000 SPS 614 kl 0.0055 rew 16.43 max_stage 4.91 mult 0.180
+it 2880/13020 step 4423680 SPS 614 kl 0.0043 rew 16.43 max_stage 4.91 mult 0.187
+it 2885/13020 step 4431360 SPS 614 kl 0.0049 rew 16.43 max_stage 4.91 mult 0.163
+it 2890/13020 step 4439040 SPS 614 kl 0.0068 rew 16.43 max_stage 4.91 mult 0.141
+it 2895/13020 step 4446720 SPS 614 kl 0.0066 rew 16.46 max_stage 4.93 mult 0.221
+it 2900/13020 step 4454400 SPS 614 kl 0.0059 rew 16.47 max_stage 4.93 mult 0.192
+it 2905/13020 step 4462080 SPS 614 kl 0.0053 rew 16.47 max_stage 4.93 mult 0.166
+it 2910/13020 step 4469760 SPS 614 kl 0.0065 rew 16.49 max_stage 4.94 mult 0.217
+it 2915/13020 step 4477440 SPS 614 kl 0.0034 rew 16.49 max_stage 4.94 mult 0.188
+it 2920/13020 step 4485120 SPS 614 kl 0.0063 rew 16.49 max_stage 4.94 mult 0.196
+it 2925/13020 step 4492800 SPS 614 kl 0.0051 rew 16.56 max_stage 4.95 mult 0.136
+it 2930/13020 step 4500480 SPS 614 kl 0.0073 rew 16.60 max_stage 4.97 mult 0.177
+it 2935/13020 step 4508160 SPS 614 kl 0.0062 rew 16.61 max_stage 4.97 mult 0.231
+it 2940/13020 step 4515840 SPS 614 kl 0.0060 rew 16.72 max_stage 4.98 mult 0.167
+it 2945/13020 step 4523520 SPS 615 kl 0.0051 rew 16.72 max_stage 4.98 mult 0.174
+it 2950/13020 step 4531200 SPS 615 kl 0.0050 rew 16.72 max_stage 4.98 mult 0.151
+it 2955/13020 step 4538880 SPS 615 kl 0.0062 rew 16.72 max_stage 4.98 mult 0.196
+it 2960/13020 step 4546560 SPS 615 kl 0.0062 rew 16.72 max_stage 4.98 mult 0.170
+it 2965/13020 step 4554240 SPS 614 kl 0.0052 rew 16.72 max_stage 4.98 mult 0.148
+it 2970/13020 step 4561920 SPS 615 kl 0.0059 rew 16.72 max_stage 4.98 mult 0.193
+it 2975/13020 step 4569600 SPS 615 kl 0.0073 rew 16.72 max_stage 4.98 mult 0.201
+it 2980/13020 step 4577280 SPS 615 kl 0.0055 rew 16.72 max_stage 4.98 mult 0.174
+it 2985/13020 step 4584960 SPS 614 kl 0.0066 rew 16.65 max_stage 4.96 mult 0.227
+it 2990/13020 step 4592640 SPS 615 kl 0.0054 rew 16.65 max_stage 4.96 mult 0.164
+it 2995/13020 step 4600320 SPS 615 kl 0.0063 rew 16.58 max_stage 4.96 mult 0.171
+it 3000/13020 step 4608000 SPS 615 kl 0.0092 rew 16.50 max_stage 4.94 mult 0.223
+it 3005/13020 step 4615680 SPS 615 kl 0.0053 rew 16.50 max_stage 4.94 mult 0.193
+it 3010/13020 step 4623360 SPS 615 kl 0.0045 rew 16.50 max_stage 4.94 mult 0.252
+it 3015/13020 step 4631040 SPS 615 kl 0.0045 rew 16.47 max_stage 4.93 mult 0.218
+it 3020/13020 step 4638720 SPS 615 kl 0.0055 rew 16.47 max_stage 4.93 mult 0.190
+it 3025/13020 step 4646400 SPS 615 kl 0.0047 rew 16.52 max_stage 4.94 mult 0.137
+it 3030/13020 step 4654080 SPS 616 kl 0.0035 rew 16.52 max_stage 4.94 mult 0.179
+it 3035/13020 step 4661760 SPS 616 kl 0.0062 rew 16.42 max_stage 4.92 mult 0.155
+it 3040/13020 step 4669440 SPS 616 kl 0.0054 rew 16.43 max_stage 4.91 mult 0.161
+it 3045/13020 step 4677120 SPS 616 kl 0.0052 rew 16.43 max_stage 4.91 mult 0.140
+it 3050/13020 step 4684800 SPS 615 kl 0.0057 rew 16.43 max_stage 4.91 mult 0.182
+it 3055/13020 step 4692480 SPS 616 kl 0.0048 rew 16.43 max_stage 4.91 mult 0.127
+it 3060/13020 step 4700160 SPS 615 kl 0.0045 rew 16.46 max_stage 4.92 mult 0.297
+it 3065/13020 step 4707840 SPS 615 kl 0.0043 rew 16.46 max_stage 4.92 mult 0.215
+it 3070/13020 step 4715520 SPS 615 kl 0.0052 rew 16.46 max_stage 4.92 mult 0.149
+it 3075/13020 step 4723200 SPS 615 kl 0.0049 rew 16.50 max_stage 4.92 mult 0.155
+it 3080/13020 step 4730880 SPS 616 kl 0.0039 rew 16.50 max_stage 4.92 mult 0.243
+it 3085/13020 step 4738560 SPS 616 kl 0.0038 rew 16.50 max_stage 4.92 mult 0.176
+it 3090/13020 step 4746240 SPS 615 kl 0.0070 rew 16.51 max_stage 4.92 mult 0.229
+it 3095/13020 step 4753920 SPS 615 kl 0.0071 rew 16.51 max_stage 4.92 mult 0.165
+it 3100/13020 step 4761600 SPS 616 kl 0.0056 rew 16.51 max_stage 4.92 mult 0.172
+it 3105/13020 step 4769280 SPS 616 kl 0.0062 rew 16.51 max_stage 4.92 mult 0.144
+it 3110/13020 step 4776960 SPS 616 kl 0.0058 rew 16.51 max_stage 4.92 mult 0.180
+it 3115/13020 step 4784640 SPS 616 kl 0.0042 rew 16.54 max_stage 4.93 mult 0.224
+it 3120/13020 step 4792320 SPS 616 kl 0.0069 rew 16.54 max_stage 4.93 mult 0.156
+it 3125/13020 step 4800000 SPS 616 kl 0.0049 rew 16.53 max_stage 4.92 mult 0.243
+it 3130/13020 step 4807680 SPS 616 kl 0.0062 rew 16.53 max_stage 4.92 mult 0.176
+it 3135/13020 step 4815360 SPS 616 kl 0.0054 rew 16.53 max_stage 4.92 mult 0.183
+it 3140/13020 step 4823040 SPS 616 kl 0.0058 rew 16.60 max_stage 4.93 mult 0.229
+it 3145/13020 step 4830720 SPS 617 kl 0.0059 rew 16.60 max_stage 4.93 mult 0.199
+it 3150/13020 step 4838400 SPS 617 kl 0.0068 rew 16.60 max_stage 4.93 mult 0.173
+it 3155/13020 step 4846080 SPS 616 kl 0.0057 rew 16.60 max_stage 4.93 mult 0.150
+it 3160/13020 step 4853760 SPS 616 kl 0.0048 rew 16.60 max_stage 4.93 mult 0.234
+it 3165/13020 step 4861440 SPS 617 kl 0.0051 rew 16.60 max_stage 4.93 mult 0.170
+it 3170/13020 step 4869120 SPS 617 kl 0.0036 rew 16.70 max_stage 4.95 mult 0.221
+it 3175/13020 step 4876800 SPS 617 kl 0.0052 rew 16.75 max_stage 4.95 mult 0.192
+it 3180/13020 step 4884480 SPS 617 kl 0.0046 rew 16.75 max_stage 4.95 mult 0.250
+it 3185/13020 step 4892160 SPS 616 kl 0.0049 rew 16.75 max_stage 4.95 mult 0.217
+it 3190/13020 step 4899840 SPS 616 kl 0.0068 rew 16.75 max_stage 4.95 mult 0.188
+it 3195/13020 step 4907520 SPS 617 kl 0.0054 rew 16.75 max_stage 4.95 mult 0.163
+it 3200/13020 step 4915200 SPS 616 kl 0.0049 rew 16.75 max_stage 4.95 mult 0.170
+it 3205/13020 step 4922880 SPS 616 kl 0.0059 rew 16.76 max_stage 4.94 mult 0.177
+it 3210/13020 step 4930560 SPS 617 kl 0.0049 rew 16.76 max_stage 4.94 mult 0.231
+it 3215/13020 step 4938240 SPS 616 kl 0.0051 rew 16.76 max_stage 4.94 mult 0.200
+it 3220/13020 step 4945920 SPS 616 kl 0.0074 rew 16.76 max_stage 4.93 mult 0.174
+it 3225/13020 step 4953600 SPS 616 kl 0.0049 rew 16.76 max_stage 4.93 mult 0.271
+it 3230/13020 step 4961280 SPS 617 kl 0.0038 rew 16.76 max_stage 4.95 mult 0.236
+it 3235/13020 step 4968960 SPS 616 kl 0.0058 rew 16.76 max_stage 4.95 mult 0.205
+it 3240/13020 step 4976640 SPS 616 kl 0.0073 rew 16.79 max_stage 4.96 mult 0.213
+it 3245/13020 step 4984320 SPS 616 kl 0.0068 rew 16.89 max_stage 4.97 mult 0.185
+it 3250/13020 step 4992000 SPS 616 kl 0.0051 rew 16.89 max_stage 4.97 mult 0.193
+it 3255/13020 step 4999680 SPS 617 kl 0.0058 rew 16.83 max_stage 4.95 mult 0.201
+it 3260/13020 step 5007360 SPS 616 kl 0.0052 rew 16.83 max_stage 4.95 mult 0.167
+it 3265/13020 step 5015040 SPS 617 kl 0.0083 rew 16.83 max_stage 4.95 mult 0.174
+it 3270/13020 step 5022720 SPS 617 kl 0.0041 rew 16.97 max_stage 4.97 mult 0.181
+it 3275/13020 step 5030400 SPS 616 kl 0.0064 rew 16.97 max_stage 4.97 mult 0.189
+it 3280/13020 step 5038080 SPS 616 kl 0.0057 rew 17.05 max_stage 5.00 mult 0.164
+it 3285/13020 step 5045760 SPS 617 kl 0.0061 rew 17.05 max_stage 5.00 mult 0.214
+it 3290/13020 step 5053440 SPS 616 kl 0.0046 rew 17.09 max_stage 5.00 mult 0.185
+it 3295/13020 step 5061120 SPS 617 kl 0.0074 rew 17.09 max_stage 5.00 mult 0.193
+it 3300/13020 step 5068800 SPS 617 kl 0.0045 rew 17.09 max_stage 5.00 mult 0.140
+it 3305/13020 step 5076480 SPS 617 kl 0.0042 rew 17.12 max_stage 5.01 mult 0.218
+it 3310/13020 step 5084160 SPS 616 kl 0.0048 rew 17.12 max_stage 5.01 mult 0.284
+it 3315/13020 step 5091840 SPS 617 kl 0.0033 rew 17.12 max_stage 5.01 mult 0.206
+it 3320/13020 step 5099520 SPS 617 kl 0.0059 rew 17.12 max_stage 5.01 mult 0.149
+it 3325/13020 step 5107200 SPS 617 kl 0.0053 rew 17.12 max_stage 5.01 mult 0.233
+it 3330/13020 step 5114880 SPS 617 kl 0.0052 rew 17.12 max_stage 5.01 mult 0.161
+it 3335/13020 step 5122560 SPS 617 kl 0.0044 rew 17.12 max_stage 5.01 mult 0.210
+it 3340/13020 step 5130240 SPS 617 kl 0.0038 rew 17.12 max_stage 5.01 mult 0.101
+it 3345/13020 step 5137920 SPS 616 kl 0.0054 rew 17.12 max_stage 5.01 mult 0.132
+it 3350/13020 step 5145600 SPS 617 kl 0.0056 rew 17.12 max_stage 5.01 mult 0.206
+it 3355/13020 step 5153280 SPS 617 kl 0.0051 rew 17.12 max_stage 5.01 mult 0.179
+it 3360/13020 step 5160960 SPS 617 kl 0.0041 rew 17.08 max_stage 5.00 mult 0.224
+it 3365/13020 step 5168640 SPS 617 kl 0.0062 rew 17.08 max_stage 5.00 mult 0.194
+it 3370/13020 step 5176320 SPS 617 kl 0.0055 rew 17.12 max_stage 5.01 mult 0.162
+it 3375/13020 step 5184000 SPS 617 kl 0.0076 rew 17.08 max_stage 4.99 mult 0.211
+it 3380/13020 step 5191680 SPS 617 kl 0.0076 rew 17.08 max_stage 4.99 mult 0.183
+it 3385/13020 step 5199360 SPS 617 kl 0.0053 rew 17.08 max_stage 4.99 mult 0.159
+it 3390/13020 step 5207040 SPS 617 kl 0.0051 rew 17.08 max_stage 4.99 mult 0.165
+it 3395/13020 step 5214720 SPS 617 kl 0.0053 rew 17.08 max_stage 4.99 mult 0.172
+it 3400/13020 step 5222400 SPS 617 kl 0.0052 rew 17.08 max_stage 4.99 mult 0.180
+it 3405/13020 step 5230080 SPS 617 kl 0.0064 rew 17.07 max_stage 4.98 mult 0.187
+it 3410/13020 step 5237760 SPS 617 kl 0.0048 rew 17.07 max_stage 4.98 mult 0.162
+it 3415/13020 step 5245440 SPS 617 kl 0.0034 rew 17.07 max_stage 4.98 mult 0.254
+it 3420/13020 step 5253120 SPS 617 kl 0.0038 rew 17.07 max_stage 4.98 mult 0.220
+it 3425/13020 step 5260800 SPS 617 kl 0.0053 rew 17.07 max_stage 4.98 mult 0.191
+it 3430/13020 step 5268480 SPS 617 kl 0.0058 rew 17.08 max_stage 4.99 mult 0.239
+it 3435/13020 step 5276160 SPS 617 kl 0.0057 rew 17.08 max_stage 4.99 mult 0.173
+it 3440/13020 step 5283840 SPS 617 kl 0.0052 rew 17.15 max_stage 5.00 mult 0.180
+it 3445/13020 step 5291520 SPS 617 kl 0.0056 rew 17.19 max_stage 4.99 mult 0.188
+it 3450/13020 step 5299200 SPS 617 kl 0.0048 rew 17.20 max_stage 5.00 mult 0.293
+it 3455/13020 step 5306880 SPS 617 kl 0.0079 rew 17.32 max_stage 5.00 mult 0.212
+it 3460/13020 step 5314560 SPS 618 kl 0.0045 rew 17.32 max_stage 5.00 mult 0.221
+it 3465/13020 step 5322240 SPS 618 kl 0.0055 rew 17.32 max_stage 5.00 mult 0.192
+it 3470/13020 step 5329920 SPS 618 kl 0.0054 rew 17.26 max_stage 4.98 mult 0.160
+it 3475/13020 step 5337600 SPS 618 kl 0.0036 rew 17.31 max_stage 5.00 mult 0.250
+it 3480/13020 step 5345280 SPS 618 kl 0.0054 rew 17.31 max_stage 5.00 mult 0.217
+it 3485/13020 step 5352960 SPS 617 kl 0.0056 rew 17.31 max_stage 5.00 mult 0.188
+it 3490/13020 step 5360640 SPS 618 kl 0.0067 rew 17.31 max_stage 5.00 mult 0.163
+it 3495/13020 step 5368320 SPS 617 kl 0.0047 rew 17.29 max_stage 5.00 mult 0.255
+it 3500/13020 step 5376000 SPS 618 kl 0.0068 rew 17.29 max_stage 5.00 mult 0.221
+it 3505/13020 step 5383680 SPS 617 kl 0.0047 rew 17.29 max_stage 5.00 mult 0.192
+it 3510/13020 step 5391360 SPS 618 kl 0.0065 rew 17.29 max_stage 5.00 mult 0.167
+it 3515/13020 step 5399040 SPS 618 kl 0.0054 rew 17.29 max_stage 5.00 mult 0.174
+it 3520/13020 step 5406720 SPS 618 kl 0.0051 rew 17.29 max_stage 5.00 mult 0.226
+it 3525/13020 step 5414400 SPS 618 kl 0.0052 rew 17.29 max_stage 5.00 mult 0.189
+it 3530/13020 step 5422080 SPS 618 kl 0.0058 rew 17.29 max_stage 5.00 mult 0.196
+it 3535/13020 step 5429760 SPS 617 kl 0.0055 rew 17.29 max_stage 5.00 mult 0.171
+it 3540/13020 step 5437440 SPS 618 kl 0.0043 rew 17.29 max_stage 5.00 mult 0.222
+it 3545/13020 step 5445120 SPS 618 kl 0.0051 rew 17.29 max_stage 5.00 mult 0.154
+it 3550/13020 step 5452800 SPS 617 kl 0.0064 rew 17.33 max_stage 5.02 mult 0.201
+it 3555/13020 step 5460480 SPS 617 kl 0.0074 rew 17.33 max_stage 5.02 mult 0.209
+it 3560/13020 step 5468160 SPS 617 kl 0.0051 rew 17.33 max_stage 5.02 mult 0.182
+it 3565/13020 step 5475840 SPS 617 kl 0.0044 rew 17.33 max_stage 5.02 mult 0.236
+it 3570/13020 step 5483520 SPS 617 kl 0.0034 rew 17.33 max_stage 5.02 mult 0.205
+it 3575/13020 step 5491200 SPS 617 kl 0.0076 rew 17.33 max_stage 5.02 mult 0.178
+it 3580/13020 step 5498880 SPS 617 kl 0.0057 rew 17.33 max_stage 5.02 mult 0.232
+it 3585/13020 step 5506560 SPS 617 kl 0.0060 rew 17.33 max_stage 5.02 mult 0.168
+it 3590/13020 step 5514240 SPS 617 kl 0.0050 rew 17.33 max_stage 5.02 mult 0.262
+it 3595/13020 step 5521920 SPS 617 kl 0.0057 rew 17.31 max_stage 5.01 mult 0.228
+it 3600/13020 step 5529600 SPS 617 kl 0.0054 rew 17.31 max_stage 5.01 mult 0.158
+it 3605/13020 step 5537280 SPS 617 kl 0.0047 rew 17.27 max_stage 5.00 mult 0.137
+it 3610/13020 step 5544960 SPS 617 kl 0.0061 rew 17.27 max_stage 5.00 mult 0.179
+it 3615/13020 step 5552640 SPS 617 kl 0.0058 rew 17.27 max_stage 5.00 mult 0.129
+it 3620/13020 step 5560320 SPS 618 kl 0.0039 rew 17.40 max_stage 5.03 mult 0.202
+it 3625/13020 step 5568000 SPS 617 kl 0.0038 rew 17.40 max_stage 5.03 mult 0.315
+it 3630/13020 step 5575680 SPS 617 kl 0.0055 rew 17.40 max_stage 5.03 mult 0.183
+it 3635/13020 step 5583360 SPS 618 kl 0.0061 rew 17.40 max_stage 5.03 mult 0.190
+it 3640/13020 step 5591040 SPS 617 kl 0.0056 rew 17.52 max_stage 5.03 mult 0.238
+it 3645/13020 step 5598720 SPS 617 kl 0.0052 rew 17.52 max_stage 5.03 mult 0.206
+it 3650/13020 step 5606400 SPS 617 kl 0.0049 rew 17.55 max_stage 5.03 mult 0.215
+it 3655/13020 step 5614080 SPS 617 kl 0.0068 rew 17.55 max_stage 5.03 mult 0.224
+it 3660/13020 step 5621760 SPS 617 kl 0.0043 rew 17.51 max_stage 5.02 mult 0.233
+it 3665/13020 step 5629440 SPS 617 kl 0.0056 rew 17.51 max_stage 5.02 mult 0.202
+it 3670/13020 step 5637120 SPS 617 kl 0.0059 rew 17.51 max_stage 5.02 mult 0.211
+it 3675/13020 step 5644800 SPS 617 kl 0.0057 rew 17.51 max_stage 5.02 mult 0.183
+it 3680/13020 step 5652480 SPS 617 kl 0.0054 rew 17.51 max_stage 5.02 mult 0.159
+it 3685/13020 step 5660160 SPS 617 kl 0.0028 rew 17.51 max_stage 5.02 mult 0.115
+it 3690/13020 step 5667840 SPS 617 kl 0.0042 rew 17.57 max_stage 5.04 mult 0.269
+it 3695/13020 step 5675520 SPS 617 kl 0.0057 rew 17.57 max_stage 5.04 mult 0.234
+it 3700/13020 step 5683200 SPS 617 kl 0.0044 rew 17.57 max_stage 5.04 mult 0.203
+it 3705/13020 step 5690880 SPS 617 kl 0.0053 rew 17.57 max_stage 5.04 mult 0.176
+it 3710/13020 step 5698560 SPS 617 kl 0.0048 rew 17.57 max_stage 5.04 mult 0.127
+it 3715/13020 step 5706240 SPS 617 kl 0.0060 rew 17.61 max_stage 5.04 mult 0.199
+it 3720/13020 step 5713920 SPS 617 kl 0.0054 rew 17.61 max_stage 5.04 mult 0.173
+it 3725/13020 step 5721600 SPS 617 kl 0.0056 rew 17.61 max_stage 5.04 mult 0.180
+it 3730/13020 step 5729280 SPS 617 kl 0.0053 rew 17.61 max_stage 5.04 mult 0.234
+it 3735/13020 step 5736960 SPS 617 kl 0.0047 rew 17.56 max_stage 5.05 mult 0.244
+it 3740/13020 step 5744640 SPS 617 kl 0.0054 rew 17.53 max_stage 5.04 mult 0.177
+it 3745/13020 step 5752320 SPS 617 kl 0.0055 rew 17.53 max_stage 5.04 mult 0.230
+it 3750/13020 step 5760000 SPS 617 kl 0.0032 rew 17.53 max_stage 5.04 mult 0.240
+it 3755/13020 step 5767680 SPS 616 kl 0.0068 rew 17.53 max_stage 5.04 mult 0.208
+it 3760/13020 step 5775360 SPS 616 kl 0.0061 rew 17.53 max_stage 5.04 mult 0.150
+it 3765/13020 step 5783040 SPS 617 kl 0.0062 rew 17.53 max_stage 5.04 mult 0.235
+it 3770/13020 step 5790720 SPS 616 kl 0.0054 rew 17.53 max_stage 5.04 mult 0.196
+it 3775/13020 step 5798400 SPS 616 kl 0.0059 rew 17.53 max_stage 5.04 mult 0.170
+it 3780/13020 step 5806080 SPS 616 kl 0.0046 rew 17.49 max_stage 5.03 mult 0.221
+it 3785/13020 step 5813760 SPS 617 kl 0.0049 rew 17.53 max_stage 5.03 mult 0.288
+it 3790/13020 step 5821440 SPS 617 kl 0.0066 rew 17.53 max_stage 5.03 mult 0.250
+it 3795/13020 step 5829120 SPS 617 kl 0.0049 rew 17.53 max_stage 5.03 mult 0.174
+it 3800/13020 step 5836800 SPS 617 kl 0.0051 rew 17.53 max_stage 5.03 mult 0.181
+it 3805/13020 step 5844480 SPS 617 kl 0.0034 rew 17.53 max_stage 5.03 mult 0.236
+it 3810/13020 step 5852160 SPS 617 kl 0.0050 rew 17.65 max_stage 5.04 mult 0.205
+it 3815/13020 step 5859840 SPS 617 kl 0.0031 rew 17.60 max_stage 5.04 mult 0.178
+it 3820/13020 step 5867520 SPS 617 kl 0.0047 rew 17.60 max_stage 5.04 mult 0.154
+it 3825/13020 step 5875200 SPS 617 kl 0.0052 rew 17.66 max_stage 5.05 mult 0.161
+it 3830/13020 step 5882880 SPS 617 kl 0.0044 rew 17.66 max_stage 5.05 mult 0.301
+it 3835/13020 step 5890560 SPS 617 kl 0.0048 rew 17.68 max_stage 5.05 mult 0.218
+it 3840/13020 step 5898240 SPS 617 kl 0.0062 rew 17.75 max_stage 5.08 mult 0.189
+it 3845/13020 step 5905920 SPS 617 kl 0.0055 rew 17.75 max_stage 5.08 mult 0.164
+it 3850/13020 step 5913600 SPS 618 kl 0.0048 rew 17.71 max_stage 5.06 mult 0.257
+it 3855/13020 step 5921280 SPS 617 kl 0.0040 rew 17.69 max_stage 5.04 mult 0.186
+it 3860/13020 step 5928960 SPS 618 kl 0.0054 rew 17.69 max_stage 5.04 mult 0.193
+it 3865/13020 step 5936640 SPS 618 kl 0.0062 rew 17.69 max_stage 5.04 mult 0.201
+it 3870/13020 step 5944320 SPS 617 kl 0.0054 rew 17.69 max_stage 5.04 mult 0.175
+it 3875/13020 step 5952000 SPS 618 kl 0.0061 rew 17.69 max_stage 5.04 mult 0.152
+it 3880/13020 step 5959680 SPS 618 kl 0.0052 rew 17.69 max_stage 5.04 mult 0.158
+it 3885/13020 step 5967360 SPS 618 kl 0.0051 rew 17.69 max_stage 5.04 mult 0.198
+it 3890/13020 step 5975040 SPS 618 kl 0.0045 rew 17.69 max_stage 5.04 mult 0.309
+it 3895/13020 step 5982720 SPS 618 kl 0.0045 rew 17.69 max_stage 5.04 mult 0.223
+it 3900/13020 step 5990400 SPS 618 kl 0.0055 rew 17.69 max_stage 5.04 mult 0.129
+it 3905/13020 step 5998080 SPS 618 kl 0.0057 rew 17.69 max_stage 5.04 mult 0.202
+it 3910/13020 step 6005760 SPS 618 kl 0.0063 rew 17.69 max_stage 5.04 mult 0.210
+it 3915/13020 step 6013440 SPS 618 kl 0.0066 rew 17.59 max_stage 5.03 mult 0.219
+it 3920/13020 step 6021120 SPS 618 kl 0.0064 rew 17.52 max_stage 5.01 mult 0.183
+it 3925/13020 step 6028800 SPS 618 kl 0.0046 rew 17.52 max_stage 5.01 mult 0.159
+it 3930/13020 step 6036480 SPS 618 kl 0.0065 rew 17.52 max_stage 5.01 mult 0.138
+it 3935/13020 step 6044160 SPS 618 kl 0.0061 rew 17.52 max_stage 5.01 mult 0.143
+it 3940/13020 step 6051840 SPS 618 kl 0.0039 rew 17.52 max_stage 5.01 mult 0.187
+it 3945/13020 step 6059520 SPS 618 kl 0.0067 rew 17.52 max_stage 5.01 mult 0.162
+it 3950/13020 step 6067200 SPS 618 kl 0.0048 rew 17.44 max_stage 4.99 mult 0.304
+it 3955/13020 step 6074880 SPS 618 kl 0.0042 rew 17.47 max_stage 5.00 mult 0.220
+it 3960/13020 step 6082560 SPS 618 kl 0.0059 rew 17.47 max_stage 5.00 mult 0.191
+it 3965/13020 step 6090240 SPS 618 kl 0.0073 rew 17.47 max_stage 5.00 mult 0.238
+it 3970/13020 step 6097920 SPS 618 kl 0.0063 rew 17.47 max_stage 5.00 mult 0.172
+it 3975/13020 step 6105600 SPS 619 kl 0.0043 rew 17.47 max_stage 5.00 mult 0.225
+it 3980/13020 step 6113280 SPS 618 kl 0.0061 rew 17.48 max_stage 5.00 mult 0.162
+it 3985/13020 step 6120960 SPS 618 kl 0.0032 rew 17.48 max_stage 5.00 mult 0.212
+it 3990/13020 step 6128640 SPS 618 kl 0.0045 rew 17.48 max_stage 5.00 mult 0.264
+it 3995/13020 step 6136320 SPS 618 kl 0.0060 rew 17.41 max_stage 4.98 mult 0.191
+it 4000/13020 step 6144000 SPS 618 kl 0.0048 rew 17.41 max_stage 4.98 mult 0.249
+it 4005/13020 step 6151680 SPS 618 kl 0.0035 rew 17.41 max_stage 4.98 mult 0.216
+it 4010/13020 step 6159360 SPS 618 kl 0.0044 rew 17.41 max_stage 4.98 mult 0.225
+it 4015/13020 step 6167040 SPS 618 kl 0.0055 rew 17.41 max_stage 4.98 mult 0.195
+it 4020/13020 step 6174720 SPS 618 kl 0.0060 rew 17.41 max_stage 4.98 mult 0.170
+it 4025/13020 step 6182400 SPS 618 kl 0.0044 rew 17.41 max_stage 4.98 mult 0.265
+it 4030/13020 step 6190080 SPS 618 kl 0.0052 rew 17.41 max_stage 4.98 mult 0.192
+it 4035/13020 step 6197760 SPS 618 kl 0.0047 rew 17.41 max_stage 4.98 mult 0.240
+it 4040/13020 step 6205440 SPS 618 kl 0.0052 rew 17.40 max_stage 4.97 mult 0.208
+it 4045/13020 step 6213120 SPS 618 kl 0.0047 rew 17.37 max_stage 4.97 mult 0.260
+it 4050/13020 step 6220800 SPS 618 kl 0.0027 rew 17.37 max_stage 4.97 mult 0.188
+it 4055/13020 step 6228480 SPS 619 kl 0.0051 rew 17.37 max_stage 4.97 mult 0.196
+it 4060/13020 step 6236160 SPS 618 kl 0.0059 rew 17.37 max_stage 4.97 mult 0.204
+it 4065/13020 step 6243840 SPS 619 kl 0.0055 rew 17.26 max_stage 4.96 mult 0.177
+it 4070/13020 step 6251520 SPS 618 kl 0.0044 rew 17.26 max_stage 4.96 mult 0.231
+it 4075/13020 step 6259200 SPS 619 kl 0.0042 rew 17.26 max_stage 4.96 mult 0.167
+it 4080/13020 step 6266880 SPS 619 kl 0.0049 rew 17.26 max_stage 4.96 mult 0.261
+it 4085/13020 step 6274560 SPS 618 kl 0.0050 rew 17.23 max_stage 4.96 mult 0.226
+it 4090/13020 step 6282240 SPS 619 kl 0.0052 rew 17.23 max_stage 4.96 mult 0.197
+it 4095/13020 step 6289920 SPS 618 kl 0.0077 rew 17.26 max_stage 4.97 mult 0.205
+it 4100/13020 step 6297600 SPS 619 kl 0.0052 rew 17.26 max_stage 4.97 mult 0.178
+it 4105/13020 step 6305280 SPS 619 kl 0.0059 rew 17.26 max_stage 4.97 mult 0.231
+it 4110/13020 step 6312960 SPS 619 kl 0.0049 rew 17.26 max_stage 4.97 mult 0.241
+it 4115/13020 step 6320640 SPS 618 kl 0.0049 rew 17.12 max_stage 4.96 mult 0.314
+it 4120/13020 step 6328320 SPS 619 kl 0.0039 rew 17.12 max_stage 4.96 mult 0.227
+it 4125/13020 step 6336000 SPS 619 kl 0.0039 rew 17.13 max_stage 4.97 mult 0.197
+it 4130/13020 step 6343680 SPS 619 kl 0.0068 rew 17.13 max_stage 4.97 mult 0.143
+it 4135/13020 step 6351360 SPS 619 kl 0.0060 rew 17.14 max_stage 4.97 mult 0.149
+it 4140/13020 step 6359040 SPS 619 kl 0.0056 rew 17.14 max_stage 4.97 mult 0.193
+it 4145/13020 step 6366720 SPS 619 kl 0.0028 rew 17.14 max_stage 4.97 mult 0.168
+it 4150/13020 step 6374400 SPS 619 kl 0.0039 rew 17.21 max_stage 4.97 mult 0.262
+it 4155/13020 step 6382080 SPS 619 kl 0.0060 rew 17.21 max_stage 4.97 mult 0.152
+it 4160/13020 step 6389760 SPS 619 kl 0.0045 rew 17.21 max_stage 4.97 mult 0.237
+it 4165/13020 step 6397440 SPS 619 kl 0.0050 rew 17.10 max_stage 4.95 mult 0.309
+it 4170/13020 step 6405120 SPS 619 kl 0.0028 rew 17.08 max_stage 4.96 mult 0.223
+it 4175/13020 step 6412800 SPS 619 kl 0.0045 rew 17.08 max_stage 4.96 mult 0.194
+it 4180/13020 step 6420480 SPS 619 kl 0.0055 rew 17.08 max_stage 4.96 mult 0.202
+it 4185/13020 step 6428160 SPS 619 kl 0.0051 rew 17.08 max_stage 4.96 mult 0.210
+it 4190/13020 step 6435840 SPS 619 kl 0.0056 rew 17.08 max_stage 4.96 mult 0.183
+it 4195/13020 step 6443520 SPS 619 kl 0.0042 rew 17.09 max_stage 4.96 mult 0.238
+it 4200/13020 step 6451200 SPS 619 kl 0.0067 rew 17.06 max_stage 4.97 mult 0.206
+it 4205/13020 step 6458880 SPS 619 kl 0.0049 rew 17.06 max_stage 4.97 mult 0.269
+it 4210/13020 step 6466560 SPS 620 kl 0.0065 rew 17.06 max_stage 4.97 mult 0.194
+it 4215/13020 step 6474240 SPS 620 kl 0.0053 rew 17.06 max_stage 4.97 mult 0.169
+it 4220/13020 step 6481920 SPS 619 kl 0.0046 rew 17.00 max_stage 4.96 mult 0.147
+it 4225/13020 step 6489600 SPS 619 kl 0.0043 rew 17.00 max_stage 4.96 mult 0.191
+it 4230/13020 step 6497280 SPS 620 kl 0.0055 rew 16.86 max_stage 4.93 mult 0.199
+it 4235/13020 step 6504960 SPS 619 kl 0.0048 rew 16.86 max_stage 4.93 mult 0.207
+it 4240/13020 step 6512640 SPS 620 kl 0.0047 rew 16.86 max_stage 4.93 mult 0.180
+it 4245/13020 step 6520320 SPS 620 kl 0.0042 rew 16.86 max_stage 4.93 mult 0.281
+it 4250/13020 step 6528000 SPS 620 kl 0.0072 rew 16.86 max_stage 4.93 mult 0.162
+it 4255/13020 step 6535680 SPS 619 kl 0.0045 rew 16.86 max_stage 4.93 mult 0.254
+it 4260/13020 step 6543360 SPS 619 kl 0.0045 rew 16.86 max_stage 4.93 mult 0.184
+it 4265/13020 step 6551040 SPS 620 kl 0.0046 rew 16.86 max_stage 4.93 mult 0.287
+it 4270/13020 step 6558720 SPS 619 kl 0.0055 rew 16.87 max_stage 4.94 mult 0.166
+it 4275/13020 step 6566400 SPS 619 kl 0.0060 rew 16.87 max_stage 4.94 mult 0.173
+it 4280/13020 step 6574080 SPS 620 kl 0.0053 rew 16.87 max_stage 4.92 mult 0.150
+it 4285/13020 step 6581760 SPS 619 kl 0.0043 rew 16.87 max_stage 4.92 mult 0.235
+it 4290/13020 step 6589440 SPS 619 kl 0.0048 rew 16.97 max_stage 4.94 mult 0.170
+it 4295/13020 step 6597120 SPS 619 kl 0.0052 rew 17.03 max_stage 4.95 mult 0.147
+it 4300/13020 step 6604800 SPS 620 kl 0.0062 rew 17.03 max_stage 4.95 mult 0.184
+it 4305/13020 step 6612480 SPS 620 kl 0.0059 rew 17.03 max_stage 4.95 mult 0.160
+it 4310/13020 step 6620160 SPS 620 kl 0.0040 rew 17.07 max_stage 4.96 mult 0.250
+it 4315/13020 step 6627840 SPS 620 kl 0.0047 rew 17.07 max_stage 4.96 mult 0.260
+it 4320/13020 step 6635520 SPS 620 kl 0.0035 rew 17.07 max_stage 4.96 mult 0.226
+it 4325/13020 step 6643200 SPS 620 kl 0.0058 rew 17.07 max_stage 4.96 mult 0.196
+it 4330/13020 step 6650880 SPS 620 kl 0.0069 rew 17.07 max_stage 4.96 mult 0.204
+it 4335/13020 step 6658560 SPS 620 kl 0.0047 rew 17.07 max_stage 4.96 mult 0.266
+it 4340/13020 step 6666240 SPS 620 kl 0.0074 rew 16.91 max_stage 4.93 mult 0.231
+it 4345/13020 step 6673920 SPS 620 kl 0.0054 rew 16.74 max_stage 4.91 mult 0.167
+it 4350/13020 step 6681600 SPS 620 kl 0.0044 rew 16.74 max_stage 4.91 mult 0.217
+it 4355/13020 step 6689280 SPS 620 kl 0.0059 rew 16.74 max_stage 4.91 mult 0.189
+it 4360/13020 step 6696960 SPS 620 kl 0.0050 rew 16.74 max_stage 4.91 mult 0.246
+it 4365/13020 step 6704640 SPS 620 kl 0.0054 rew 16.74 max_stage 4.91 mult 0.213
+it 4370/13020 step 6712320 SPS 620 kl 0.0037 rew 16.74 max_stage 4.91 mult 0.222
+it 4375/13020 step 6720000 SPS 620 kl 0.0070 rew 16.74 max_stage 4.91 mult 0.193
+it 4380/13020 step 6727680 SPS 620 kl 0.0053 rew 16.68 max_stage 4.88 mult 0.201
+it 4385/13020 step 6735360 SPS 620 kl 0.0052 rew 16.68 max_stage 4.88 mult 0.174
+it 4390/13020 step 6743040 SPS 620 kl 0.0051 rew 16.68 max_stage 4.88 mult 0.182
+it 4395/13020 step 6750720 SPS 620 kl 0.0052 rew 16.68 max_stage 4.88 mult 0.189
+it 4400/13020 step 6758400 SPS 620 kl 0.0044 rew 16.68 max_stage 4.88 mult 0.158
+it 4405/13020 step 6766080 SPS 620 kl 0.0062 rew 16.68 max_stage 4.88 mult 0.205
+it 4410/13020 step 6773760 SPS 620 kl 0.0048 rew 16.68 max_stage 4.88 mult 0.149
+it 4415/13020 step 6781440 SPS 620 kl 0.0062 rew 16.64 max_stage 4.87 mult 0.232
+it 4420/13020 step 6789120 SPS 620 kl 0.0050 rew 16.64 max_stage 4.87 mult 0.201
+it 4425/13020 step 6796800 SPS 620 kl 0.0048 rew 16.54 max_stage 4.86 mult 0.168
+it 4430/13020 step 6804480 SPS 620 kl 0.0040 rew 16.54 max_stage 4.86 mult 0.262
+it 4435/13020 step 6812160 SPS 621 kl 0.0078 rew 16.54 max_stage 4.86 mult 0.190
+it 4440/13020 step 6819840 SPS 621 kl 0.0043 rew 16.57 max_stage 4.85 mult 0.165
+it 4445/13020 step 6827520 SPS 621 kl 0.0046 rew 16.57 max_stage 4.85 mult 0.257
+it 4450/13020 step 6835200 SPS 621 kl 0.0048 rew 16.47 max_stage 4.83 mult 0.186
+it 4455/13020 step 6842880 SPS 621 kl 0.0044 rew 16.47 max_stage 4.83 mult 0.242
+it 4460/13020 step 6850560 SPS 621 kl 0.0048 rew 16.50 max_stage 4.84 mult 0.175
+it 4465/13020 step 6858240 SPS 621 kl 0.0063 rew 16.50 max_stage 4.84 mult 0.228
+it 4470/13020 step 6865920 SPS 621 kl 0.0067 rew 16.53 max_stage 4.85 mult 0.198
+it 4475/13020 step 6873600 SPS 621 kl 0.0062 rew 16.53 max_stage 4.85 mult 0.172
+it 4480/13020 step 6881280 SPS 621 kl 0.0040 rew 16.53 max_stage 4.85 mult 0.269
+it 4485/13020 step 6888960 SPS 621 kl 0.0061 rew 16.53 max_stage 4.85 mult 0.194
+it 4490/13020 step 6896640 SPS 621 kl 0.0049 rew 16.53 max_stage 4.85 mult 0.253
+it 4495/13020 step 6904320 SPS 621 kl 0.0058 rew 16.53 max_stage 4.85 mult 0.220
+it 4500/13020 step 6912000 SPS 621 kl 0.0054 rew 16.53 max_stage 4.85 mult 0.286
+it 4505/13020 step 6919680 SPS 621 kl 0.0053 rew 16.53 max_stage 4.85 mult 0.199
+it 4510/13020 step 6927360 SPS 621 kl 0.0044 rew 16.53 max_stage 4.85 mult 0.144
+it 4515/13020 step 6935040 SPS 621 kl 0.0057 rew 16.55 max_stage 4.84 mult 0.225
+it 4520/13020 step 6942720 SPS 621 kl 0.0052 rew 16.55 max_stage 4.84 mult 0.195
+it 4525/13020 step 6950400 SPS 622 kl 0.0050 rew 16.55 max_stage 4.84 mult 0.203
+it 4530/13020 step 6958080 SPS 622 kl 0.0051 rew 16.57 max_stage 4.84 mult 0.212
+it 4535/13020 step 6965760 SPS 622 kl 0.0045 rew 16.57 max_stage 4.84 mult 0.276
+it 4540/13020 step 6973440 SPS 622 kl 0.0042 rew 16.57 max_stage 4.84 mult 0.287
+it 4545/13020 step 6981120 SPS 622 kl 0.0059 rew 16.53 max_stage 4.83 mult 0.208
+it 4550/13020 step 6988800 SPS 622 kl 0.0061 rew 16.53 max_stage 4.83 mult 0.150
+it 4555/13020 step 6996480 SPS 621 kl 0.0057 rew 16.53 max_stage 4.83 mult 0.196
+it 4560/13020 step 7004160 SPS 622 kl 0.0030 rew 16.59 max_stage 4.85 mult 0.204
+it 4565/13020 step 7011840 SPS 621 kl 0.0055 rew 16.59 max_stage 4.85 mult 0.212
+it 4570/13020 step 7019520 SPS 622 kl 0.0053 rew 16.59 max_stage 4.85 mult 0.184
+it 4575/13020 step 7027200 SPS 622 kl 0.0040 rew 16.59 max_stage 4.85 mult 0.240
+it 4580/13020 step 7034880 SPS 622 kl 0.0069 rew 16.66 max_stage 4.86 mult 0.173
+it 4585/13020 step 7042560 SPS 622 kl 0.0049 rew 16.57 max_stage 4.84 mult 0.226
+it 4590/13020 step 7050240 SPS 622 kl 0.0058 rew 16.57 max_stage 4.84 mult 0.196
+it 4595/13020 step 7057920 SPS 622 kl 0.0048 rew 16.50 max_stage 4.82 mult 0.142
+it 4600/13020 step 7065600 SPS 622 kl 0.0052 rew 16.37 max_stage 4.78 mult 0.222
+it 4605/13020 step 7073280 SPS 622 kl 0.0068 rew 16.37 max_stage 4.78 mult 0.192
+it 4610/13020 step 7080960 SPS 622 kl 0.0059 rew 16.37 max_stage 4.78 mult 0.251
+it 4615/13020 step 7088640 SPS 622 kl 0.0060 rew 16.37 max_stage 4.78 mult 0.217
+it 4620/13020 step 7096320 SPS 622 kl 0.0046 rew 16.37 max_stage 4.78 mult 0.283
+it 4625/13020 step 7104000 SPS 622 kl 0.0059 rew 16.37 max_stage 4.78 mult 0.246
+it 4630/13020 step 7111680 SPS 622 kl 0.0066 rew 16.37 max_stage 4.78 mult 0.256
+it 4635/13020 step 7119360 SPS 622 kl 0.0061 rew 16.37 max_stage 4.78 mult 0.222
+it 4640/13020 step 7127040 SPS 622 kl 0.0062 rew 16.37 max_stage 4.78 mult 0.193
+it 4645/13020 step 7134720 SPS 622 kl 0.0072 rew 16.37 max_stage 4.78 mult 0.167
+it 4650/13020 step 7142400 SPS 622 kl 0.0029 rew 16.40 max_stage 4.79 mult 0.145
+it 4655/13020 step 7150080 SPS 622 kl 0.0038 rew 16.40 max_stage 4.79 mult 0.189
+it 4660/13020 step 7157760 SPS 623 kl 0.0046 rew 16.40 max_stage 4.79 mult 0.296
+it 4665/13020 step 7165440 SPS 622 kl 0.0052 rew 16.40 max_stage 4.79 mult 0.214
+it 4670/13020 step 7173120 SPS 623 kl 0.0051 rew 16.52 max_stage 4.81 mult 0.186
+it 4675/13020 step 7180800 SPS 622 kl 0.0056 rew 16.53 max_stage 4.82 mult 0.161
+it 4680/13020 step 7188480 SPS 623 kl 0.0037 rew 16.58 max_stage 4.83 mult 0.140
+it 4685/13020 step 7196160 SPS 623 kl 0.0063 rew 16.66 max_stage 4.86 mult 0.182
+it 4690/13020 step 7203840 SPS 623 kl 0.0056 rew 16.66 max_stage 4.86 mult 0.158
+it 4695/13020 step 7211520 SPS 623 kl 0.0041 rew 16.82 max_stage 4.90 mult 0.247
+it 4700/13020 step 7219200 SPS 623 kl 0.0056 rew 16.82 max_stage 4.90 mult 0.179
+it 4705/13020 step 7226880 SPS 623 kl 0.0038 rew 16.82 max_stage 4.90 mult 0.233
+it 4710/13020 step 7234560 SPS 623 kl 0.0054 rew 16.82 max_stage 4.90 mult 0.168
+it 4715/13020 step 7242240 SPS 623 kl 0.0070 rew 16.82 max_stage 4.90 mult 0.219
+it 4720/13020 step 7249920 SPS 623 kl 0.0051 rew 16.82 max_stage 4.90 mult 0.159
+it 4725/13020 step 7257600 SPS 623 kl 0.0050 rew 16.82 max_stage 4.90 mult 0.165
+it 4730/13020 step 7265280 SPS 623 kl 0.0074 rew 16.82 max_stage 4.90 mult 0.215
+it 4735/13020 step 7272960 SPS 623 kl 0.0059 rew 16.82 max_stage 4.90 mult 0.187
+it 4740/13020 step 7280640 SPS 623 kl 0.0044 rew 16.82 max_stage 4.90 mult 0.243
+it 4745/13020 step 7288320 SPS 622 kl 0.0038 rew 16.82 max_stage 4.90 mult 0.253
+it 4750/13020 step 7296000 SPS 622 kl 0.0062 rew 16.82 max_stage 4.90 mult 0.183
+it 4755/13020 step 7303680 SPS 623 kl 0.0061 rew 16.86 max_stage 4.90 mult 0.159
+it 4760/13020 step 7311360 SPS 623 kl 0.0038 rew 16.86 max_stage 4.90 mult 0.249
+it 4765/13020 step 7319040 SPS 623 kl 0.0051 rew 16.86 max_stage 4.90 mult 0.180
+it 4770/13020 step 7326720 SPS 623 kl 0.0059 rew 17.10 max_stage 4.93 mult 0.234
+it 4775/13020 step 7334400 SPS 623 kl 0.0054 rew 17.10 max_stage 4.93 mult 0.169
+it 4780/13020 step 7342080 SPS 623 kl 0.0048 rew 17.06 max_stage 4.92 mult 0.265
+it 4785/13020 step 7349760 SPS 623 kl 0.0065 rew 17.26 max_stage 4.95 mult 0.230
+it 4790/13020 step 7357440 SPS 623 kl 0.0051 rew 17.26 max_stage 4.95 mult 0.199
+it 4795/13020 step 7365120 SPS 623 kl 0.0061 rew 17.26 max_stage 4.95 mult 0.249
+it 4800/13020 step 7372800 SPS 623 kl 0.0060 rew 17.26 max_stage 4.95 mult 0.216
+it 4805/13020 step 7380480 SPS 623 kl 0.0058 rew 17.26 max_stage 4.95 mult 0.282
+it 4810/13020 step 7388160 SPS 623 kl 0.0031 rew 17.26 max_stage 4.95 mult 0.204
+it 4815/13020 step 7395840 SPS 623 kl 0.0063 rew 17.26 max_stage 4.95 mult 0.177
+it 4820/13020 step 7403520 SPS 623 kl 0.0047 rew 17.26 max_stage 4.95 mult 0.276
+it 4825/13020 step 7411200 SPS 623 kl 0.0040 rew 17.26 max_stage 4.95 mult 0.200
+it 4830/13020 step 7418880 SPS 623 kl 0.0034 rew 17.26 max_stage 4.95 mult 0.260
+it 4835/13020 step 7426560 SPS 623 kl 0.0069 rew 17.26 max_stage 4.95 mult 0.226
+it 4840/13020 step 7434240 SPS 623 kl 0.0047 rew 17.26 max_stage 4.95 mult 0.294
+it 4845/13020 step 7441920 SPS 623 kl 0.0050 rew 17.26 max_stage 4.95 mult 0.213
+it 4850/13020 step 7449600 SPS 623 kl 0.0060 rew 17.26 max_stage 4.95 mult 0.222
+it 4855/13020 step 7457280 SPS 623 kl 0.0064 rew 17.40 max_stage 4.99 mult 0.192
+it 4860/13020 step 7464960 SPS 623 kl 0.0045 rew 17.40 max_stage 4.99 mult 0.200
+it 4865/13020 step 7472640 SPS 623 kl 0.0064 rew 17.37 max_stage 4.99 mult 0.174
+it 4870/13020 step 7480320 SPS 623 kl 0.0037 rew 17.37 max_stage 4.99 mult 0.227
+it 4875/13020 step 7488000 SPS 623 kl 0.0063 rew 17.37 max_stage 4.99 mult 0.197
+it 4880/13020 step 7495680 SPS 623 kl 0.0054 rew 17.37 max_stage 4.99 mult 0.171
+it 4885/13020 step 7503360 SPS 623 kl 0.0058 rew 17.37 max_stage 4.99 mult 0.222
+it 4890/13020 step 7511040 SPS 623 kl 0.0055 rew 17.34 max_stage 4.99 mult 0.193
+it 4895/13020 step 7518720 SPS 623 kl 0.0040 rew 17.36 max_stage 5.00 mult 0.251
+it 4900/13020 step 7526400 SPS 624 kl 0.0036 rew 17.38 max_stage 5.03 mult 0.218
+it 4905/13020 step 7534080 SPS 624 kl 0.0062 rew 17.43 max_stage 5.04 mult 0.189
+it 4910/13020 step 7541760 SPS 624 kl 0.0052 rew 17.43 max_stage 5.04 mult 0.197
+it 4915/13020 step 7549440 SPS 624 kl 0.0048 rew 17.52 max_stage 5.05 mult 0.308
+it 4920/13020 step 7557120 SPS 624 kl 0.0056 rew 17.52 max_stage 5.05 mult 0.223
+it 4925/13020 step 7564800 SPS 623 kl 0.0050 rew 17.39 max_stage 5.04 mult 0.232
+it 4930/13020 step 7572480 SPS 624 kl 0.0049 rew 17.39 max_stage 5.04 mult 0.168
+it 4935/13020 step 7580160 SPS 623 kl 0.0063 rew 17.39 max_stage 5.04 mult 0.219
+it 4940/13020 step 7587840 SPS 624 kl 0.0043 rew 17.39 max_stage 5.04 mult 0.158
+it 4945/13020 step 7595520 SPS 624 kl 0.0043 rew 17.39 max_stage 5.03 mult 0.206
+it 4950/13020 step 7603200 SPS 624 kl 0.0054 rew 17.39 max_stage 5.03 mult 0.179
+it 4955/13020 step 7610880 SPS 624 kl 0.0055 rew 17.39 max_stage 5.03 mult 0.155
+it 4960/13020 step 7618560 SPS 624 kl 0.0034 rew 17.39 max_stage 5.03 mult 0.243
+it 4965/13020 step 7626240 SPS 624 kl 0.0060 rew 17.32 max_stage 5.01 mult 0.211
+it 4970/13020 step 7633920 SPS 624 kl 0.0054 rew 17.28 max_stage 5.02 mult 0.274
+it 4975/13020 step 7641600 SPS 624 kl 0.0067 rew 17.28 max_stage 5.02 mult 0.198
+it 4980/13020 step 7649280 SPS 624 kl 0.0059 rew 17.39 max_stage 5.03 mult 0.258
+it 4985/13020 step 7656960 SPS 624 kl 0.0057 rew 17.40 max_stage 5.00 mult 0.187
+it 4990/13020 step 7664640 SPS 624 kl 0.0052 rew 17.40 max_stage 5.00 mult 0.195
+it 4995/13020 step 7672320 SPS 624 kl 0.0045 rew 17.40 max_stage 5.00 mult 0.203
+it 5000/13020 step 7680000 SPS 624 kl 0.0058 rew 17.40 max_stage 5.00 mult 0.176
+it 5005/13020 step 7687680 SPS 624 kl 0.0058 rew 17.40 max_stage 5.00 mult 0.153
+it 5010/13020 step 7695360 SPS 624 kl 0.0042 rew 17.40 max_stage 5.00 mult 0.199
+it 5015/13020 step 7703040 SPS 624 kl 0.0049 rew 17.40 max_stage 5.00 mult 0.311
+it 5020/13020 step 7710720 SPS 624 kl 0.0031 rew 17.40 max_stage 5.00 mult 0.225
+it 5025/13020 step 7718400 SPS 624 kl 0.0051 rew 17.40 max_stage 5.00 mult 0.195
+it 5030/13020 step 7726080 SPS 624 kl 0.0056 rew 17.40 max_stage 5.00 mult 0.254
+it 5035/13020 step 7733760 SPS 624 kl 0.0056 rew 17.40 max_stage 5.00 mult 0.221
+it 5040/13020 step 7741440 SPS 624 kl 0.0056 rew 17.40 max_stage 5.00 mult 0.191
+it 5045/13020 step 7749120 SPS 624 kl 0.0070 rew 17.40 max_stage 5.00 mult 0.166
+it 5050/13020 step 7756800 SPS 624 kl 0.0052 rew 17.51 max_stage 5.01 mult 0.173
+it 5055/13020 step 7764480 SPS 624 kl 0.0049 rew 17.51 max_stage 5.01 mult 0.225
+it 5060/13020 step 7772160 SPS 624 kl 0.0042 rew 17.51 max_stage 5.01 mult 0.293
+it 5065/13020 step 7779840 SPS 624 kl 0.0039 rew 17.51 max_stage 5.01 mult 0.255
+it 5070/13020 step 7787520 SPS 624 kl 0.0050 rew 17.51 max_stage 5.01 mult 0.221
+it 5075/13020 step 7795200 SPS 624 kl 0.0042 rew 17.51 max_stage 5.01 mult 0.288
+it 5080/13020 step 7802880 SPS 624 kl 0.0068 rew 17.51 max_stage 5.01 mult 0.250
+it 5085/13020 step 7810560 SPS 624 kl 0.0053 rew 17.50 max_stage 5.00 mult 0.217
+it 5090/13020 step 7818240 SPS 624 kl 0.0049 rew 17.43 max_stage 4.99 mult 0.271
+it 5095/13020 step 7825920 SPS 624 kl 0.0031 rew 17.43 max_stage 4.99 mult 0.235
+it 5100/13020 step 7833600 SPS 624 kl 0.0063 rew 17.47 max_stage 5.00 mult 0.204
+it 5105/13020 step 7841280 SPS 624 kl 0.0055 rew 17.47 max_stage 5.00 mult 0.213
+it 5110/13020 step 7848960 SPS 624 kl 0.0042 rew 17.44 max_stage 4.99 mult 0.222
+it 5115/13020 step 7856640 SPS 624 kl 0.0037 rew 17.44 max_stage 4.99 mult 0.231
+it 5120/13020 step 7864320 SPS 624 kl 0.0046 rew 17.44 max_stage 4.99 mult 0.167
+it 5125/13020 step 7872000 SPS 624 kl 0.0051 rew 17.44 max_stage 4.99 mult 0.174
+it 5130/13020 step 7879680 SPS 624 kl 0.0033 rew 17.58 max_stage 5.02 mult 0.181
+it 5135/13020 step 7887360 SPS 624 kl 0.0048 rew 17.58 max_stage 5.02 mult 0.236
+it 5140/13020 step 7895040 SPS 624 kl 0.0060 rew 17.58 max_stage 5.02 mult 0.205
+it 5145/13020 step 7902720 SPS 624 kl 0.0047 rew 17.57 max_stage 5.00 mult 0.267
+it 5150/13020 step 7910400 SPS 624 kl 0.0067 rew 17.57 max_stage 5.00 mult 0.278
+it 5155/13020 step 7918080 SPS 624 kl 0.0044 rew 17.57 max_stage 5.00 mult 0.201
+it 5160/13020 step 7925760 SPS 624 kl 0.0061 rew 17.57 max_stage 5.00 mult 0.262
+it 5165/13020 step 7933440 SPS 624 kl 0.0055 rew 17.58 max_stage 5.01 mult 0.227
+it 5170/13020 step 7941120 SPS 624 kl 0.0053 rew 17.58 max_stage 5.01 mult 0.237
+it 5175/13020 step 7948800 SPS 624 kl 0.0047 rew 17.58 max_stage 5.01 mult 0.308
+it 5180/13020 step 7956480 SPS 624 kl 0.0046 rew 17.58 max_stage 5.01 mult 0.268
+it 5185/13020 step 7964160 SPS 624 kl 0.0054 rew 17.58 max_stage 5.01 mult 0.232
+it 5190/13020 step 7971840 SPS 624 kl 0.0040 rew 17.58 max_stage 5.01 mult 0.302
+it 5195/13020 step 7979520 SPS 624 kl 0.0063 rew 17.58 max_stage 5.01 mult 0.219
+it 5200/13020 step 7987200 SPS 624 kl 0.0064 rew 17.68 max_stage 5.04 mult 0.190
+it 5205/13020 step 7994880 SPS 624 kl 0.0020 rew 17.68 max_stage 5.04 mult 0.165
+it 5210/13020 step 8002560 SPS 624 kl 0.0073 rew 17.68 max_stage 5.04 mult 0.258
+it 5215/13020 step 8010240 SPS 624 kl 0.0047 rew 17.68 max_stage 5.04 mult 0.335
+it 5220/13020 step 8017920 SPS 624 kl 0.0060 rew 17.68 max_stage 5.04 mult 0.243
+it 5225/13020 step 8025600 SPS 624 kl 0.0058 rew 17.68 max_stage 5.04 mult 0.253
+it 5230/13020 step 8033280 SPS 624 kl 0.0059 rew 17.82 max_stage 5.06 mult 0.183
+it 5235/13020 step 8040960 SPS 624 kl 0.0063 rew 17.82 max_stage 5.06 mult 0.238
+it 5240/13020 step 8048640 SPS 624 kl 0.0043 rew 17.82 max_stage 5.06 mult 0.298
+it 5245/13020 step 8056320 SPS 624 kl 0.0065 rew 17.73 max_stage 5.05 mult 0.215
+it 5250/13020 step 8064000 SPS 624 kl 0.0057 rew 17.73 max_stage 5.05 mult 0.224
+it 5255/13020 step 8071680 SPS 624 kl 0.0041 rew 17.73 max_stage 5.05 mult 0.292
+it 5260/13020 step 8079360 SPS 624 kl 0.0066 rew 17.73 max_stage 5.05 mult 0.211
+it 5265/13020 step 8087040 SPS 624 kl 0.0052 rew 17.73 max_stage 5.05 mult 0.220
+it 5270/13020 step 8094720 SPS 624 kl 0.0045 rew 17.73 max_stage 5.05 mult 0.286
+it 5275/13020 step 8102400 SPS 624 kl 0.0043 rew 17.79 max_stage 5.07 mult 0.298
+it 5280/13020 step 8110080 SPS 624 kl 0.0060 rew 17.79 max_stage 5.07 mult 0.216
+it 5285/13020 step 8117760 SPS 624 kl 0.0040 rew 17.88 max_stage 5.08 mult 0.281
+it 5290/13020 step 8125440 SPS 624 kl 0.0031 rew 17.74 max_stage 5.07 mult 0.203
+it 5295/13020 step 8133120 SPS 624 kl 0.0042 rew 17.74 max_stage 5.07 mult 0.265
+it 5300/13020 step 8140800 SPS 624 kl 0.0052 rew 17.74 max_stage 5.07 mult 0.191
+it 5305/13020 step 8148480 SPS 624 kl 0.0045 rew 17.74 max_stage 5.07 mult 0.249
+it 5310/13020 step 8156160 SPS 624 kl 0.0045 rew 17.74 max_stage 5.07 mult 0.312
+it 5315/13020 step 8163840 SPS 624 kl 0.0041 rew 17.74 max_stage 5.07 mult 0.271
+it 5320/13020 step 8171520 SPS 624 kl 0.0061 rew 17.70 max_stage 5.06 mult 0.196
+it 5325/13020 step 8179200 SPS 624 kl 0.0049 rew 17.70 max_stage 5.06 mult 0.306
+it 5330/13020 step 8186880 SPS 624 kl 0.0036 rew 17.80 max_stage 5.08 mult 0.221
+it 5335/13020 step 8194560 SPS 624 kl 0.0038 rew 17.76 max_stage 5.08 mult 0.160
+it 5340/13020 step 8202240 SPS 624 kl 0.0072 rew 17.76 max_stage 5.08 mult 0.208
+it 5345/13020 step 8209920 SPS 625 kl 0.0044 rew 17.76 max_stage 5.08 mult 0.271
+it 5350/13020 step 8217600 SPS 624 kl 0.0070 rew 17.76 max_stage 5.08 mult 0.196
+it 5355/13020 step 8225280 SPS 624 kl 0.0066 rew 17.75 max_stage 5.08 mult 0.204
+it 5360/13020 step 8232960 SPS 624 kl 0.0045 rew 17.75 max_stage 5.08 mult 0.266
+it 5365/13020 step 8240640 SPS 624 kl 0.0054 rew 17.75 max_stage 5.08 mult 0.277
+it 5370/13020 step 8248320 SPS 624 kl 0.0038 rew 17.75 max_stage 5.08 mult 0.241
+it 5375/13020 step 8256000 SPS 624 kl 0.0059 rew 17.75 max_stage 5.08 mult 0.313
+it 5380/13020 step 8263680 SPS 624 kl 0.0053 rew 17.75 max_stage 5.08 mult 0.151
+it 5385/13020 step 8271360 SPS 624 kl 0.0057 rew 17.82 max_stage 5.08 mult 0.236
+it 5390/13020 step 8279040 SPS 624 kl 0.0047 rew 17.83 max_stage 5.08 mult 0.205
+it 5395/13020 step 8286720 SPS 624 kl 0.0030 rew 17.83 max_stage 5.08 mult 0.267
+it 5400/13020 step 8294400 SPS 624 kl 0.0076 rew 17.83 max_stage 5.08 mult 0.232
+it 5405/13020 step 8302080 SPS 624 kl 0.0056 rew 17.80 max_stage 5.09 mult 0.201
+it 5410/13020 step 8309760 SPS 624 kl 0.0031 rew 17.78 max_stage 5.08 mult 0.262
+it 5415/13020 step 8317440 SPS 625 kl 0.0050 rew 17.78 max_stage 5.08 mult 0.273
+it 5420/13020 step 8325120 SPS 624 kl 0.0055 rew 17.78 max_stage 5.08 mult 0.197
+it 5425/13020 step 8332800 SPS 624 kl 0.0051 rew 17.78 max_stage 5.08 mult 0.171
+it 5430/13020 step 8340480 SPS 624 kl 0.0030 rew 17.78 max_stage 5.08 mult 0.223
+it 5435/13020 step 8348160 SPS 624 kl 0.0068 rew 17.78 max_stage 5.08 mult 0.194
+it 5440/13020 step 8355840 SPS 624 kl 0.0064 rew 17.75 max_stage 5.06 mult 0.303
+it 5445/13020 step 8363520 SPS 624 kl 0.0050 rew 17.75 max_stage 5.06 mult 0.219
+it 5450/13020 step 8371200 SPS 624 kl 0.0055 rew 17.75 max_stage 5.06 mult 0.228
+it 5455/13020 step 8378880 SPS 624 kl 0.0034 rew 17.75 max_stage 5.06 mult 0.165
+it 5460/13020 step 8386560 SPS 624 kl 0.0037 rew 17.70 max_stage 5.05 mult 0.258
+it 5465/13020 step 8394240 SPS 624 kl 0.0053 rew 17.70 max_stage 5.05 mult 0.215
+it 5470/13020 step 8401920 SPS 624 kl 0.0062 rew 17.70 max_stage 5.05 mult 0.280
+it 5475/13020 step 8409600 SPS 624 kl 0.0061 rew 17.70 max_stage 5.05 mult 0.243
+it 5480/13020 step 8417280 SPS 624 kl 0.0047 rew 17.70 max_stage 5.05 mult 0.316
+it 5485/13020 step 8424960 SPS 624 kl 0.0054 rew 17.66 max_stage 5.04 mult 0.274
+it 5490/13020 step 8432640 SPS 624 kl 0.0064 rew 17.66 max_stage 5.04 mult 0.238
+it 5495/13020 step 8440320 SPS 624 kl 0.0048 rew 17.64 max_stage 5.05 mult 0.298
+it 5500/13020 step 8448000 SPS 624 kl 0.0038 rew 17.64 max_stage 5.05 mult 0.258
+it 5505/13020 step 8455680 SPS 624 kl 0.0049 rew 17.64 max_stage 5.05 mult 0.150
+it 5510/13020 step 8463360 SPS 624 kl 0.0054 rew 17.64 max_stage 5.05 mult 0.187
+it 5515/13020 step 8471040 SPS 624 kl 0.0074 rew 17.64 max_stage 5.05 mult 0.243
+it 5520/13020 step 8478720 SPS 624 kl 0.0057 rew 17.64 max_stage 5.05 mult 0.211
+it 5525/13020 step 8486400 SPS 624 kl 0.0035 rew 17.64 max_stage 5.05 mult 0.183
+it 5530/13020 step 8494080 SPS 624 kl 0.0046 rew 17.64 max_stage 5.05 mult 0.229
+it 5535/13020 step 8501760 SPS 624 kl 0.0046 rew 17.60 max_stage 5.07 mult 0.298
+it 5540/13020 step 8509440 SPS 624 kl 0.0031 rew 17.60 max_stage 5.07 mult 0.216
+it 5545/13020 step 8517120 SPS 624 kl 0.0058 rew 17.60 max_stage 5.07 mult 0.187
+it 5550/13020 step 8524800 SPS 624 kl 0.0049 rew 17.60 max_stage 5.07 mult 0.293
+it 5555/13020 step 8532480 SPS 624 kl 0.0049 rew 17.67 max_stage 5.08 mult 0.305
+it 5560/13020 step 8540160 SPS 624 kl 0.0045 rew 17.67 max_stage 5.08 mult 0.265
+it 5565/13020 step 8547840 SPS 624 kl 0.0061 rew 17.67 max_stage 5.08 mult 0.192
+it 5570/13020 step 8555520 SPS 624 kl 0.0054 rew 17.67 max_stage 5.08 mult 0.249
+it 5575/13020 step 8563200 SPS 624 kl 0.0046 rew 17.76 max_stage 5.11 mult 0.325
+it 5580/13020 step 8570880 SPS 624 kl 0.0038 rew 17.76 max_stage 5.11 mult 0.157
+it 5585/13020 step 8578560 SPS 624 kl 0.0056 rew 17.76 max_stage 5.11 mult 0.245
+it 5590/13020 step 8586240 SPS 624 kl 0.0061 rew 17.76 max_stage 5.11 mult 0.177
+it 5595/13020 step 8593920 SPS 624 kl 0.0049 rew 17.76 max_stage 5.11 mult 0.154
+it 5600/13020 step 8601600 SPS 624 kl 0.0068 rew 17.76 max_stage 5.11 mult 0.200
+it 5605/13020 step 8609280 SPS 624 kl 0.0046 rew 17.76 max_stage 5.11 mult 0.145
+it 5610/13020 step 8616960 SPS 624 kl 0.0043 rew 17.76 max_stage 5.11 mult 0.188
+it 5615/13020 step 8624640 SPS 624 kl 0.0066 rew 17.79 max_stage 5.12 mult 0.245
+it 5620/13020 step 8632320 SPS 624 kl 0.0052 rew 17.79 max_stage 5.12 mult 0.177
+it 5625/13020 step 8640000 SPS 624 kl 0.0048 rew 17.79 max_stage 5.12 mult 0.154
+it 5630/13020 step 8647680 SPS 624 kl 0.0047 rew 17.75 max_stage 5.09 mult 0.289
+it 5635/13020 step 8655360 SPS 624 kl 0.0050 rew 17.75 max_stage 5.09 mult 0.201
+it 5640/13020 step 8663040 SPS 625 kl 0.0047 rew 17.75 max_stage 5.09 mult 0.261
+it 5645/13020 step 8670720 SPS 625 kl 0.0043 rew 17.77 max_stage 5.11 mult 0.181
+it 5650/13020 step 8678400 SPS 625 kl 0.0044 rew 17.77 max_stage 5.11 mult 0.283
+it 5655/13020 step 8686080 SPS 625 kl 0.0052 rew 17.77 max_stage 5.11 mult 0.164
+it 5660/13020 step 8693760 SPS 625 kl 0.0047 rew 17.77 max_stage 5.11 mult 0.214
+it 5665/13020 step 8701440 SPS 625 kl 0.0055 rew 17.77 max_stage 5.11 mult 0.155
+it 5670/13020 step 8709120 SPS 625 kl 0.0032 rew 17.77 max_stage 5.11 mult 0.201
+it 5675/13020 step 8716800 SPS 624 kl 0.0054 rew 17.77 max_stage 5.12 mult 0.210
+it 5680/13020 step 8724480 SPS 625 kl 0.0058 rew 17.69 max_stage 5.10 mult 0.218
+it 5685/13020 step 8732160 SPS 625 kl 0.0044 rew 17.69 max_stage 5.10 mult 0.189
+it 5690/13020 step 8739840 SPS 625 kl 0.0032 rew 17.76 max_stage 5.12 mult 0.247
+it 5695/13020 step 8747520 SPS 625 kl 0.0070 rew 17.76 max_stage 5.12 mult 0.178
+it 5700/13020 step 8755200 SPS 625 kl 0.0048 rew 17.76 max_stage 5.12 mult 0.335
+it 5705/13020 step 8762880 SPS 625 kl 0.0043 rew 17.76 max_stage 5.12 mult 0.290
+it 5710/13020 step 8770560 SPS 625 kl 0.0033 rew 17.76 max_stage 5.12 mult 0.303
+it 5715/13020 step 8778240 SPS 625 kl 0.0075 rew 17.77 max_stage 5.11 mult 0.219
+it 5720/13020 step 8785920 SPS 625 kl 0.0048 rew 17.77 max_stage 5.11 mult 0.190
+it 5725/13020 step 8793600 SPS 625 kl 0.0042 rew 17.77 max_stage 5.11 mult 0.247
+Process SpawnProcess-2:
+Traceback (most recent call last):
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 95, in _worker
+    # per-env settings override (e.g. a different continue_game per env to
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 414, in _recv_bytes
+    buf = self._recv(4)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 379, in _recv
+    chunk = read(handle, remaining)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+Process SpawnProcess-5:
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+Process SpawnProcess-10:
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnProcess-3:
+Traceback (most recent call last):
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 95, in _worker
+    # per-env settings override (e.g. a different continue_game per env to
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 414, in _recv_bytes
+    buf = self._recv(4)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 379, in _recv
+    chunk = read(handle, remaining)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+Process SpawnProcess-8:
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 95, in _worker
+    # per-env settings override (e.g. a different continue_game per env to
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 414, in _recv_bytes
+    buf = self._recv(4)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 379, in _recv
+    chunk = read(handle, remaining)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+Process SpawnProcess-7:
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 95, in _worker
+    # per-env settings override (e.g. a different continue_game per env to
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 414, in _recv_bytes
+    buf = self._recv(4)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 379, in _recv
+    chunk = read(handle, remaining)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 114, in _worker
+    spares_q.put(sp)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnProcess-12:
+Traceback (most recent call last):
+Process SpawnProcess-4:
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 114, in _worker
+    spares_q.put(sp)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+Process SpawnProcess-1:
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 114, in _worker
+    spares_q.put(sp)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+Process SpawnProcess-6:
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 114, in _worker
+    spares_q.put(sp)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 114, in _worker
+    spares_q.put(sp)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 114, in _worker
+    spares_q.put(sp)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnProcess-11:
+Process SpawnProcess-9:
+Traceback (most recent call last):
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 114, in _worker
+    spares_q.put(sp)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 114, in _worker
+    spares_q.put(sp)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 125, in _worker
+    def recycle(env):
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe

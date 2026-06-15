@@ -1,0 +1,68 @@
+# ASYNC collection test. = config_cleanrl.yaml but:
+#   * async_collect: true  -> M=num_envs free-running engines, rollout = fixed budget
+#     of num_steps*num_envs transitions taken as engines become ready (round/stage
+#     transition stalls on one engine no longer block the batch).
+#   * spares_per_worker: 0 -> async absorbs resets/stalls uniformly (no hot-spare).
+num_envs: 16
+spares_per_worker: 0
+base_port: 54000
+prefix: as
+folders:
+  parent_dir: ./results/
+  model_name: async_sr1
+settings:
+  game_id: sfiii3n
+  step_ratio: 1
+  frame_shape: [128, 128, 1]
+  continue_game: 0.0
+  action_space: multi_discrete
+  characters: Ryu
+  difficulty: 6
+  outfits: 2
+wrappers_settings:
+  normalize_reward: true
+  normalization_factor: 0.2
+  stack_frames: 4
+  dilation: 6
+  add_last_action: true
+  stack_actions: 6
+  scale: true
+  exclude_image_scaling: true
+  role_relative: true
+  flatten: true
+  filter_keys:
+  - action
+  - own_health
+  - opp_health
+  - own_side
+  - opp_side
+  - opp_character
+  - stage
+  - timer
+policy_kwargs:
+  net_arch:
+  - 64
+  - 64
+ppo_settings:
+  gamma: 0.99
+  model_checkpoint: '0'
+  learning_rate:
+  - 0.00025
+  - 2.5e-06
+  clip_range:
+  - 0.15
+  - 0.025
+  batch_size: 256
+  n_epochs: 4
+  n_steps: 128
+  autosave_freq: 1000000
+  time_steps: 20000000
+  ent_coef: 0.0001
+  target_kl: 0.01
+  adaptive_lr_floor: 1.0e-5
+  adaptive_lr_cap_early: 2.5e-4
+  adaptive_lr_cap_late: 8.0e-4
+  adaptive_lr_timestep_threshold: 2000000
+  adaptive_lr_early_stop_decay: 1.2
+  adaptive_lr_max_multiplier: 1.0
+  async_collect: true

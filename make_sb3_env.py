@@ -87,7 +87,14 @@ def make_sb3_env(game_id: str, env_settings: EnvironmentSettings=EnvironmentSett
         if num_envs == 1 or not use_subprocess:
             env = DummyVecEnv([_make_sb3_env(i + start_index, seed) for i in range(num_envs)])
         else:
-            env = SubprocVecEnv([serial_wrapper(_make_sb3_env(i + start_index, seed), lock_file_path=LOCK_FILE_PATH, remote_lock=False) for i in range(num_envs)],
+            # NOTE: the serial_wrapper FileLock that used to wrap each env creation
+            # is REMOVED. The parallel-spawn race it guarded was caused by all engines
+            # sharing the host $HOME//tmp (apptainer auto-mounts them); the fix is to
+            # spawn engines with --contain + per-engine private workdir/home (see
+            # engine_manager.py). With contained engines, concurrent make() is safe.
+            # (The fault-tolerant production path is MPVecEnv / train.py; this legacy
+            #  diambra-SubprocVecEnv path is kept only for reference.)
+            env = SubprocVecEnv([_make_sb3_env(i + start_index, seed) for i in range(num_envs)],
                                 start_method=start_method)
 
     return env, num_envs

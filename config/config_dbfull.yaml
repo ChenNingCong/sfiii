@@ -1,0 +1,74 @@
+# Double-buffered (AsyncMPVecEnv) throughput run. IDENTICAL to config_cleanrl.yaml
+# (best-2026-run replication + adaptive-LR blowup fix) EXCEPT:
+#   * num_envs 12 -> 48  (split into two 24-wide halves that overlap; ~5446 env-steps/s
+#     measured w/ random actions). This is the only knob changed besides LR.
+#   * learning_rate scaled by sqrt(48/12)=2x  (2.5e-4 -> 5e-4); minibatch size is
+#     unchanged (256) so per-update gradient noise is the same, and the adaptive-KL
+#     controller (target_kl 0.01, max_multiplier 1.0) cuts LR if it runs hot.
+num_envs: 48
+spares_per_worker: 2     # deeper hot-spare pool: absorb synchronized reset bursts so
+                         # a worker swaps to a warm engine instead of blocking the batch
+                         # on a sync ~3s reset (48 active + 96 spares = 144 engines)
+base_port: 53000
+prefix: db
+folders:
+  parent_dir: ./results/
+  model_name: db48_dbuf_sr1
+settings:
+  game_id: sfiii3n
+  step_ratio: 1
+  frame_shape: [128, 128, 1]
+  continue_game: 0.0
+  action_space: multi_discrete
+  characters: Ryu
+  difficulty: 6
+  outfits: 2
+wrappers_settings:
+  normalize_reward: true
+  normalization_factor: 0.2
+  stack_frames: 4
+  dilation: 6
+  add_last_action: true
+  stack_actions: 6
+  scale: true
+  exclude_image_scaling: true
+  role_relative: true
+  flatten: true
+  filter_keys:
+  - action
+  - own_health
+  - opp_health
+  - own_side
+  - opp_side
+  - opp_character
+  - stage
+  - timer
+policy_kwargs:
+  net_arch:
+  - 64
+  - 64
+ppo_settings:
+  gamma: 0.99
+  model_checkpoint: '0'
+  learning_rate:
+  - 0.0005
+  - 5.0e-06
+  clip_range:
+  - 0.15
+  - 0.025
+  batch_size: 256
+  n_epochs: 4
+  n_steps: 128
+  autosave_freq: 1000000
+  time_steps: 20000000
+  ent_coef: 0.0001
+  target_kl: 0.01
+  # adaptive KL-LR (Rudin et al.) + blowup fix (caps scaled with base LR; inert above
+  # base since max_multiplier=1.0 means effective LR <= base schedule)
+  adaptive_lr_floor: 2.0e-5
+  adaptive_lr_cap_early: 5.0e-4
+  adaptive_lr_cap_late: 1.6e-3
+  adaptive_lr_timestep_threshold: 2000000
+  adaptive_lr_early_stop_decay: 1.2
+  adaptive_lr_max_multiplier: 1.0
+  double_buffer: true

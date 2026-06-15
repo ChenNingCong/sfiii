@@ -7,3 +7,7 @@ wandb.key
 wandb
 results/
 *.lock
+# large binary caches / artifacts (not for git)
+.apptainer_cache/
+*.mp4
+temp

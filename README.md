@@ -1,0 +1,1 @@
+Run `NUM_ENV=2 BASE_PORT=5000 bash start.sh` to setup environment.

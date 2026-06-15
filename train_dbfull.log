@@ -1,0 +1,102 @@
+[engine_manager] 2 engines not ready (ports [53006, 53008]); restarting (attempt 1/3)
+[env] DOUBLE-BUFFERED (2 halves of 24)
+[env] ready launch=125.8s make=22.1s
+Agent(
+  (cnn): NatureCNN(
+    (cnn): Sequential(
+      (0): Conv2d(4, 32, kernel_size=(8, 8), stride=(4, 4))
+      (1): ReLU()
+      (2): Conv2d(32, 64, kernel_size=(4, 4), stride=(2, 2))
+      (3): ReLU()
+      (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1))
+      (5): ReLU()
+      (6): Flatten(start_dim=1, end_dim=-1)
+    )
+    (fc): Sequential(
+      (0): Linear(in_features=9216, out_features=256, bias=True)
+      (1): ReLU()
+    )
+  )
+  (pi): Sequential(
+    (0): Linear(in_features=396, out_features=64, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=64, out_features=64, bias=True)
+    (3): Tanh()
+  )
+  (vf): Sequential(
+    (0): Linear(in_features=396, out_features=64, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=64, out_features=64, bias=True)
+    (3): Tanh()
+  )
+  (actor): Linear(in_features=64, out_features=19, bias=True)
+  (critic): Linear(in_features=64, out_features=1, bias=True)
+)
+params=2,497,972 nvec=[9, 10] vec_dim=140
+/home/zzhang18/nchen3/sfiii/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2274: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/zzhang18/nchen3/sfiii/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2274: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+wandb: Currently logged in as: nchen3 (ningcong-chen) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /home/zzhang18/nchen3/sfiii/wandb/run-20260614_122911-urnckuas
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run 12:29PM-Jun-14-2026_cleanrl_191132
+wandb: ⭐️ View project at https://wandb.ai/ningcong-chen/ppo-new-200M
+wandb: 🚀 View run at https://wandb.ai/ningcong-chen/ppo-new-200M/runs/urnckuas
+it 1/3255 step 6144 SPS 2308 kl 0.0032 rew 0.00 max_stage 0.00 mult 1.000 | collect 1.85s update 0.81s (30% upd)
+it 5/3255 step 30720 SPS 2817 kl 0.0032 rew 0.00 max_stage 0.00 mult 1.000 | collect 1.42s update 0.64s (31% upd)
+it 10/3255 step 61440 SPS 2916 kl 0.0035 rew 0.00 max_stage 0.00 mult 1.000 | collect 1.41s update 0.65s (31% upd)
+it 15/3255 step 92160 SPS 2800 kl 0.0051 rew 0.00 max_stage 0.00 mult 1.000 | collect 2.26s update 0.65s (22% upd)
+it 20/3255 step 122880 SPS 1957 kl 0.0030 rew 0.00 max_stage 0.00 mult 1.000 | collect 5.91s update 0.62s (10% upd)
+it 25/3255 step 153600 SPS 1706 kl 0.0035 rew 0.00 max_stage 0.00 mult 1.000 | collect 3.31s update 0.66s (17% upd)
+it 30/3255 step 184320 SPS 1689 kl 0.0037 rew 0.00 max_stage 0.00 mult 1.000 | collect 6.78s update 0.66s (9% upd)
+it 35/3255 step 215040 SPS 1564 kl 0.0037 rew 0.00 max_stage 0.00 mult 1.000 | collect 10.43s update 0.65s (6% upd)
+it 40/3255 step 245760 SPS 1387 kl 0.0042 rew 0.00 max_stage 0.00 mult 1.000 | collect 10.36s update 0.66s (6% upd)
+it 45/3255 step 276480 SPS 1210 kl 0.0039 rew 0.00 max_stage 0.00 mult 1.000 | collect 5.94s update 0.70s (11% upd)
+it 50/3255 step 307200 SPS 1235 kl 0.0035 rew 0.00 max_stage 0.00 mult 1.000 | collect 3.68s update 0.67s (15% upd)
+it 55/3255 step 337920 SPS 1223 kl 0.0036 rew 0.00 max_stage 0.00 mult 1.000 | collect 5.38s update 0.62s (10% upd)
+it 60/3255 step 368640 SPS 1224 kl 0.0038 rew 0.00 max_stage 0.00 mult 1.000 | collect 4.08s update 0.62s (13% upd)
+it 65/3255 step 399360 SPS 1203 kl 0.0036 rew 0.00 max_stage 0.00 mult 1.000 | collect 2.33s update 0.66s (22% upd)
+it 70/3255 step 430080 SPS 1201 kl 0.0038 rew 0.00 max_stage 0.00 mult 1.000 | collect 5.31s update 0.67s (11% upd)
+it 75/3255 step 460800 SPS 1174 kl 0.0031 rew 6.68 max_stage 2.00 mult 1.000 | collect 9.91s update 0.67s (6% upd)
+it 80/3255 step 491520 SPS 1171 kl 0.0029 rew 5.90 max_stage 2.00 mult 1.000 | collect 2.29s update 0.66s (22% upd)
+it 85/3255 step 522240 SPS 1173 kl 0.0025 rew 7.03 max_stage 2.00 mult 1.000 | collect 4.53s update 0.63s (12% upd)
+it 90/3255 step 552960 SPS 1188 kl 0.0034 rew 6.42 max_stage 2.00 mult 1.000 | collect 2.31s update 0.65s (22% upd)
+it 95/3255 step 583680 SPS 1173 kl 0.0045 rew 6.57 max_stage 2.00 mult 1.000 | collect 9.61s update 0.65s (6% upd)
+it 100/3255 step 614400 SPS 1157 kl 0.0035 rew 6.11 max_stage 2.00 mult 1.000 | collect 10.34s update 0.66s (6% upd)
+it 105/3255 step 645120 SPS 1165 kl 0.0025 rew 6.08 max_stage 2.00 mult 1.000 | collect 2.35s update 0.66s (22% upd)
+it 110/3255 step 675840 SPS 1138 kl 0.0037 rew 6.08 max_stage 2.00 mult 1.000 | collect 6.11s update 0.63s (9% upd)
+it 115/3255 step 706560 SPS 1146 kl 0.0045 rew 6.08 max_stage 2.00 mult 1.000 | collect 6.45s update 0.62s (9% upd)
+it 120/3255 step 737280 SPS 1143 kl 0.0025 rew 6.08 max_stage 2.00 mult 1.000 | collect 9.57s update 0.66s (6% upd)
+it 125/3255 step 768000 SPS 1143 kl 0.0029 rew 6.08 max_stage 2.00 mult 1.000 | collect 6.05s update 0.65s (10% upd)
+it 130/3255 step 798720 SPS 1131 kl 0.0023 rew 6.08 max_stage 2.00 mult 1.000 | collect 3.72s update 0.70s (16% upd)
+it 135/3255 step 829440 SPS 1122 kl 0.0029 rew 6.52 max_stage 2.08 mult 1.000 | collect 3.28s update 0.62s (16% upd)
+it 140/3255 step 860160 SPS 1115 kl 0.0027 rew 6.52 max_stage 2.08 mult 1.000 | collect 7.38s update 0.67s (8% upd)
+it 145/3255 step 890880 SPS 1110 kl 0.0028 rew 6.83 max_stage 2.27 mult 1.000 | collect 7.83s update 0.66s (8% upd)
+it 150/3255 step 921600 SPS 1118 kl 0.0032 rew 6.83 max_stage 2.27 mult 1.000 | collect 2.30s update 0.65s (22% upd)
+it 155/3255 step 952320 SPS 1112 kl 0.0026 rew 7.44 max_stage 2.47 mult 1.000 | collect 8.64s update 0.65s (7% upd)
+it 160/3255 step 983040 SPS 1102 kl 0.0066 rew 7.44 max_stage 2.47 mult 0.833 | collect 4.75s update 0.59s (11% upd)
+it 165/3255 step 1013760 SPS 1098 kl 0.0066 rew 8.59 max_stage 2.74 mult 0.402 | collect 5.56s update 0.60s (10% upd)
+it 170/3255 step 1044480 SPS 1105 kl 0.0062 rew 8.59 max_stage 2.74 mult 0.233 | collect 4.04s update 0.39s (9% upd)
+it 175/3255 step 1075200 SPS 1095 kl 0.0050 rew 8.81 max_stage 2.80 mult 0.135 | collect 5.51s update 0.65s (11% upd)
+it 180/3255 step 1105920 SPS 1103 kl 0.0033 rew 10.17 max_stage 3.15 mult 0.097 | collect 2.29s update 0.28s (11% upd)
+it 185/3255 step 1136640 SPS 1099 kl 0.0050 rew 10.54 max_stage 3.21 mult 0.085 | collect 4.52s update 0.60s (12% upd)
+it 190/3255 step 1167360 SPS 1099 kl 0.0025 rew 10.73 max_stage 3.28 mult 0.110 | collect 4.18s update 0.21s (5% upd)
+it 195/3255 step 1198080 SPS 1101 kl 0.0028 rew 10.93 max_stage 3.39 mult 0.096 | collect 1.40s update 0.21s (13% upd)
+it 200/3255 step 1228800 SPS 1099 kl 0.0022 rew 11.69 max_stage 3.61 mult 0.069 | collect 8.15s update 0.32s (4% upd)
+Traceback (most recent call last):
+  File "/home/zzhang18/nchen3/sfiii/ppo_sfiii.py", line 348, in <module>
+    main(ap.parse_args().cfgFile)
+  File "/home/zzhang18/nchen3/sfiii/ppo_sfiii.py", line 233, in main
+    obs, rew, done, infos = envs.step(a.cpu().numpy())
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 316, in step
+    res = self.g[other].step_wait(); self._inflight[other] = False
+  File "/home/zzhang18/nchen3/sfiii/mp_vecenv.py", line 246, in step_wait
+    rew = np.array([x[0] for x in res], dtype=np.float32)
+ValueError: could not convert string to float: 'error'
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33m12:29PM-Jun-14-2026_cleanrl_191132[0m at: [34m[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20260614_122911-urnckuas/logs[0m
+/home/zzhang18/programs/anaconda3/envs/minecraft/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 48 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
